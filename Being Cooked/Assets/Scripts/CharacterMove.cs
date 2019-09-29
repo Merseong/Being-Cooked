@@ -6,9 +6,6 @@ public class CharacterMove : MonoBehaviour
 {
     public float speed = 30;
 
-    public Transform parent;
-    public Transform director;
-
     private bool isJumped = false;
 
     private void OnCollisionEnter(Collision collision)
@@ -18,8 +15,8 @@ public class CharacterMove : MonoBehaviour
 
     private void Update()
     {
-        Vector3 horizontal = director.right * Input.GetAxis("Horizontal") * speed;
-        Vector3 vertical = director.forward * Input.GetAxis("Vertical") * speed;
+        Vector3 horizontal = GameManager.inst.director.right * Input.GetAxis("Horizontal") * speed;
+        Vector3 vertical = GameManager.inst.director.forward * Input.GetAxis("Vertical") * speed;
 
         GetComponent<Rigidbody>().AddForce(horizontal + vertical);
 
@@ -28,10 +25,10 @@ public class CharacterMove : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(Vector3.up * speed / 2, ForceMode.VelocityChange);
             isJumped = true;
         }
-    }
 
-    private void LateUpdate()
-    {
-        parent.position = transform.position;
+        if (Input.GetMouseButtonDown(1))
+        {
+            GetComponent<Ingredient>().ExitControl();
+        }
     }
 }

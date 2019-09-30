@@ -13,7 +13,13 @@ public class Solid : Ingredient
     public override void IntoPot()
     {
         GameManager.inst.cameraFollow.StopAndResetCamera(2);
-        characterMove.enabled = false;
+        characterMove.isControlled = false;
+        Invoke("StopMove", 1);
         canControl = false;
+    }
+
+    void StopMove()
+    {
+        characterMove.enabled = false;
     }
 }

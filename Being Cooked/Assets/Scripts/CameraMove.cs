@@ -65,7 +65,12 @@ public class CameraMove : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit) && hit.transform.CompareTag("Ingredient"))
             {
-                beforeHit = hit.transform;
+                if (beforeHit != null && beforeHit != hit.transform)
+                {
+                    beforeHit.GetComponent<Outline>().enabled = false;
+                    beforeHit = hit.transform;
+                }
+                else beforeHit = hit.transform;
                 var ing = beforeHit.GetComponent<Ingredient>();
                 if (ing.canControl)
                 {

@@ -25,6 +25,8 @@ public abstract class Ingredient : MonoBehaviour
     public float size = 2;
     [HideInInspector]
     public float cookedTime = 0;
+    [HideInInspector]
+    public bool canControl = true;
 
     [Header("Flavor Value")]
     [Range(-20, 20)]
@@ -32,9 +34,11 @@ public abstract class Ingredient : MonoBehaviour
     [Range(-20, 20)]
     public float[] afterFlavor = new float[6];
 
-    private CharacterMove characterMove;
+    protected CharacterMove characterMove;
 
     public abstract void IntoPot();
+
+    public abstract void AfterPot();
 
     public void EnterControl()
     {
@@ -45,9 +49,7 @@ public abstract class Ingredient : MonoBehaviour
     }
     public void ExitControl()
     {
-        GameManager.inst.cameraPoser.GetComponentInChildren<CameraMove>().MoveTo(GameManager.inst.transform, 0, false);
-        GameManager.inst.cameraPoser.GetComponent<CameraFollow>().target = GameManager.inst.transform;
-        GameManager.inst.cameraMove.isTargeting = false;
+        GameManager.inst.cameraFollow.ResetCamera();
         characterMove.enabled = false;
     }
 

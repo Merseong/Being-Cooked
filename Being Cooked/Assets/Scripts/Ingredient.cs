@@ -22,7 +22,7 @@ public abstract class Ingredient : MonoBehaviour
     public float cookingTime = 1;
     public bool isProcessed = false;
     public Color soupColor;
-    public float size = 2;
+    public float size = 3;
     [HideInInspector]
     public float cookedTime = 0;
     [HideInInspector]

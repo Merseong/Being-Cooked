@@ -13,13 +13,15 @@ public class CameraMove : MonoBehaviour
 
     private Vector3 beforeLocalPos;
     private Quaternion beforeLocalRot;
+
     private Transform beforeHit;
 
-    public void MoveTo(Transform target, float howFar, bool looking = true)
+    public void MoveTo(Transform target, float howFar, Transform lookTarget = null, bool looking = true)
     {
-        isCameraMoving = true;
         Debug.Log("enter control in " + target);
-        StartCoroutine(Mover(target, howFar, looking));
+        isCameraMoving = true;
+        GameManager.inst.cameraFollow.target = target;
+        StartCoroutine(Mover(lookTarget == null ? target : lookTarget, howFar, looking));
     }
 
     IEnumerator Mover(Transform target, float howFar, bool looking)
@@ -63,21 +65,31 @@ public class CameraMove : MonoBehaviour
         if (!isTargeting)
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit) && hit.transform.CompareTag("Ingredient"))
+            bool isHit = Physics.Raycast(transform.position, transform.forward, out hit, 100);
+
+            if (isHit && (hit.transform.CompareTag("Ingredient") || hit.transform.CompareTag("Pot")))
             {
-                if (beforeHit != null && beforeHit != hit.transform)
+                if (beforeHit != hit.transform)
                 {
-                    beforeHit.GetComponent<Outline>().enabled = false;
-                    beforeHit = hit.transform;
+                    if (beforeHit != null) beforeHit.GetComponent<Outline>().enabled = false;
+                    hit.transform.GetComponent<Outline>().enabled = true;
                 }
-                else beforeHit = hit.transform;
-                var ing = beforeHit.GetComponent<Ingredient>();
-                if (ing.canControl)
+                beforeHit = hit.transform;
+
+                if (Input.GetMouseButtonDown(0))
                 {
-                    beforeHit.GetComponent<Outline>().enabled = true;
-                    if (Input.GetMouseButtonDown(0))
+                    hit.transform.GetComponent<Outline>().enabled = false;
+                    switch (hit.transform.tag)
                     {
-                        ing.EnterControl();
+                        case "Ingredient":
+                            hit.transform.GetComponent<Ingredient>().EnterControl();
+                            isTargeting = true;
+                            break;
+                        case "Pot":
+                            var pot = hit.transform.GetComponentInParent<CookingPot>();
+                            isTargeting = true;
+                            MoveTo(pot.camPos, 0, pot.transform);
+                            break;
                     }
                 }
             }
@@ -87,10 +99,22 @@ public class CameraMove : MonoBehaviour
                 beforeHit = null;
             }
         }
-        else if (beforeHit != null)
+        else
         {
-            beforeHit.GetComponent<Outline>().enabled = false;
-            beforeHit = null;
+            if (Input.GetMouseButtonDown(1) && beforeHit != null)
+            {
+                switch (beforeHit.tag)
+                {
+                    case "Ingredient":
+                        beforeHit.GetComponent<Ingredient>().ExitControl();
+                        isTargeting = false;
+                        break;
+                    case "Pot":
+                        GameManager.inst.cameraFollow.ResetCamera();
+                        isTargeting = false;
+                        break;
+                }
+            }
         }
     }
 

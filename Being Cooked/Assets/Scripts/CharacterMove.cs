@@ -55,11 +55,5 @@ public class CharacterMove : MonoBehaviour
             followPos.RemoveAt(0);
             followPos.Add(transform.position);
         }
-
-        // Right click to exit control
-        if (Input.GetMouseButtonDown(1))
-        {
-            ingredient.ExitControl();
-        }
     }
 }

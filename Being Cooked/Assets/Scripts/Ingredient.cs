@@ -42,9 +42,7 @@ public abstract class Ingredient : MonoBehaviour
 
     public void EnterControl()
     {
-        GameManager.inst.cameraPoser.GetComponentInChildren<CameraMove>().MoveTo(transform, size);
-        GameManager.inst.cameraPoser.GetComponent<CameraFollow>().target = transform;
-        GameManager.inst.cameraMove.isTargeting = true;
+        GameManager.inst.cameraMove.MoveTo(transform, size);
         characterMove.enabled = true;
     }
     public void ExitControl()

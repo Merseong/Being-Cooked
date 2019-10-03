@@ -25,7 +25,8 @@ public class CameraFollow : MonoBehaviour
 
     public void ResetCamera()
     {
-        GameManager.inst.cameraMove.MoveTo(GameManager.inst.transform, 0, null, false);
+        UIManager.inst.midDot.enabled = true;
+        GameManager.inst.cameraMove.MoveTo(GameManager.inst.transform, 0, GameManager.inst.pot.transform, true);
         GameManager.inst.cameraMove.isTargeting = false;
         isStoped = false;
     }

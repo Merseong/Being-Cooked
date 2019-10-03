@@ -19,7 +19,8 @@ public enum Flavor
 public abstract class Ingredient : MonoBehaviour
 {
     [Header("Ingredient Value")]
-    public float cookingTime = 1;
+    public string foodName = "";
+    public float cookingTime = 10;
     public bool isProcessed = false;
     public Color soupColor;
     public float size = 3;
@@ -62,12 +63,20 @@ public abstract class Ingredient : MonoBehaviour
                 flavor[i] = Mathf.Lerp(beforeFlavor[i], afterFlavor[i], cookedTime / cookingTime);
             }
         }
-        else if (cookedTime <= cookingTime * 3)
+        else if (cookedTime <= cookingTime * 1.5f)
+        {
+            // after -> wait
+            for (int i = 0; i < 6; i++)
+            {
+                flavor[i] = afterFlavor[i];
+            }
+        }
+        else if (cookedTime <= cookingTime * 3.5f)
         {
             // after -> -after
             for (int i = 0; i < 6; i++)
             {
-                flavor[i] = Mathf.Lerp(afterFlavor[i], -afterFlavor[i], (cookedTime - cookingTime) / (cookingTime * 2));
+                flavor[i] = Mathf.Lerp(afterFlavor[i], -afterFlavor[i], (cookedTime - cookingTime * 1.5f) / (cookingTime * 2));
             }
         }
         else

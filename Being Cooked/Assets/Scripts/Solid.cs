@@ -21,5 +21,14 @@ public class Solid : Ingredient
     void StopMove()
     {
         characterMove.enabled = false;
+        UIManager.inst.GenerateFoodBar(this as Ingredient);
+        isDoing = true;
+    }
+
+    bool isDoing = false;
+
+    private void Update()
+    {
+        if (isDoing) cookedTime += Time.deltaTime;
     }
 }

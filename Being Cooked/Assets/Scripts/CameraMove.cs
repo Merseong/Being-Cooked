@@ -79,6 +79,7 @@ public class CameraMove : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     hit.transform.GetComponent<Outline>().enabled = false;
+                    UIManager.inst.midDot.enabled = false;
                     switch (hit.transform.tag)
                     {
                         case "Ingredient":

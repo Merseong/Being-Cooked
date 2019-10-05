@@ -95,5 +95,11 @@ public abstract class Ingredient : MonoBehaviour
         GetComponent<Outline>().enabled = false;
         characterMove = GetComponent<CharacterMove>();
         characterMove.enabled = false;
+        AfterStart();
+    }
+
+    protected virtual void AfterStart()
+    {
+
     }
 }

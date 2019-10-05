@@ -35,7 +35,6 @@ public class CookingPot : MonoBehaviour
     }
     IEnumerator ChangingColor(Color color)
     {
-        
 
         float totalTime = 4;
         cTime = 0;
@@ -46,18 +45,30 @@ public class CookingPot : MonoBehaviour
             yield return null;
         }
     }
-    private void Update()
+    public float[] decideFlavor() //생각 생각
     {
-        for(int i = 0; i <=addIngred.Count; i++)
+        for (int a = 0; a < 6; a++)
         {
-            Ingredient ing = addIngred[i].GetComponent<Ingredient>();
-            ing.cookedTime += Time.deltaTime;
-            float[] flavor = ing.GetFlavor();
+            finalFlavor[a] = 0;
+        }
+        for (int i = 0; i <= addIngred.Count; i++)
+        {
+            float[] flavor = addIngred[i].GetComponent<Ingredient>().GetFlavor();
 
             for (int j = 0; j < 6; j++)
             {
-                finalFlavor[j] = flavor[j];
+                finalFlavor[j] += flavor[j];
             }
         }
+        return finalFlavor;
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i <= addIngred.Count; i++)
+        {
+            addIngred[i].GetComponent<Ingredient>().cookedTime += Time.deltaTime;
+        }
+        
     }
 }

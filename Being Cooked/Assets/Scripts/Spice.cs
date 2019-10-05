@@ -42,8 +42,8 @@ public class Spice : Ingredient
             transform.position = Vector3.Lerp(transform.position, GameManager.inst.pot.spicePos.position, timer * 0.5f);
             if (lidTr != null)
             {
-                lidTr.localPosition = Vector3.Lerp(Vector3.zero, new Vector3(0.05f, 0, 0.1f), timer * 0.5f);
-                lidTr.localRotation = Quaternion.Slerp(Quaternion.Euler(0, 0, 0), Quaternion.Euler(0, 90, 0), timer * 0.5f);
+                lidTr.localPosition = Vector3.Lerp(Vector3.zero, new Vector3(0.05f, 0, 0.1f), Mathf.Min(timer, 1));
+                lidTr.localRotation = Quaternion.Slerp(Quaternion.Euler(0, 0, 0), Quaternion.Euler(0, 90, 0), Mathf.Min(timer, 1));
             }
             if (particle != null) particle.Play();
             timer += Time.deltaTime;

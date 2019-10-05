@@ -6,6 +6,7 @@ using cakeslice;
 public class CookingPot : MonoBehaviour
 {
     public Transform camPos;
+    public Transform spicePos;
     private List<GameObject> addIngred = new List<GameObject>();
 
     public float[] finalFlavor = new float[6];
@@ -51,7 +52,7 @@ public class CookingPot : MonoBehaviour
         {
             finalFlavor[a] = 0;
         }
-        for (int i = 0; i <= addIngred.Count; i++)
+        for (int i = 0; i < addIngred.Count; i++)
         {
             float[] flavor = addIngred[i].GetComponent<Ingredient>().GetFlavor();
 
@@ -65,7 +66,7 @@ public class CookingPot : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i <= addIngred.Count; i++)
+        for (int i = 0; i < addIngred.Count; i++)
         {
             addIngred[i].GetComponent<Ingredient>().cookedTime += Time.deltaTime;
         }

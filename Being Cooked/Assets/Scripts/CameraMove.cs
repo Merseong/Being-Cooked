@@ -18,7 +18,7 @@ public class CameraMove : MonoBehaviour
 
     public void MoveTo(Transform target, float howFar, Transform lookTarget = null, bool looking = true)
     {
-        Debug.Log("enter control in " + target);
+        //Debug.Log("enter control in " + target);
         isCameraMoving = true;
         GameManager.inst.cameraFollow.target = target;
         StartCoroutine(Mover(lookTarget == null ? target : lookTarget, howFar, looking));

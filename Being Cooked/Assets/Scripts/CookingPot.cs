@@ -16,6 +16,7 @@ public class CookingPot : MonoBehaviour
     public float cTime;
 
     private Material mat;
+    private float lastCol = 0;
 
     private void Start()
     {
@@ -26,12 +27,24 @@ public class CookingPot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Ingredient"))
+        if (other.CompareTag("Ingredient") && lastCol + 5 < Time.time)
         {
-            addIngred.Add(other.gameObject);
-            other.GetComponent<Ingredient>().IntoPot();
-            Debug.Log(other.GetComponent<Ingredient>().soupColor);
-            StartCoroutine(ChangingColor(other.GetComponent<Ingredient>().soupColor));
+            lastCol = Time.time;
+            var ing = other.GetComponent<Ingredient>();
+            if (ing.type == IngredientType.Solid)
+            {
+                addIngred.Add(other.gameObject);
+                ing.IntoPot();
+                //Debug.Log(ing.soupColor);
+                StartCoroutine(ChangingColor(ing.soupColor));
+            }
+            else if (ing.type == IngredientType.Spice)
+            {
+                var spice = other.GetComponent<Spice>();
+                spice.IntoPot();
+                addIngred.Add(spice.GetSpiceObj());
+                StartCoroutine(ChangingColor(spice.soupColor));
+            }
         }
     }
     IEnumerator ChangingColor(Color color)

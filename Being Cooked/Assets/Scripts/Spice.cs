@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spice : Ingredient
 {
     [Header("Spice only Settings")]
+    public GameObject emptySpice;
     public Transform lidTr;
     public ParticleSystem particle;
 
@@ -15,6 +16,7 @@ public class Spice : Ingredient
     protected override void AfterStart()
     {
         rb = GetComponent<Rigidbody>();
+        type = IngredientType.Spice;
         originPos = transform.position;
         originRot = transform.rotation;
     }
@@ -32,10 +34,28 @@ public class Spice : Ingredient
         GameManager.inst.cameraFollow.StopAndResetCamera(3);
         StartCoroutine(OpenAndPourCoroutine());
     }
+
+    public GameObject GetSpiceObj()
+    {
+        var obj = Instantiate(emptySpice);
+        obj.transform.position = GameManager.inst.pot.spicePos.position;
+        var spiceInst = obj.GetComponent<Ingredient>();
+        System.Type type = spiceInst.GetType();
+        // Copied fields can be restricted with BindingFlags
+        System.Reflection.FieldInfo[] fields = type.GetFields();
+        foreach (System.Reflection.FieldInfo field in fields)
+        {
+            field.SetValue(spiceInst, field.GetValue(this as Ingredient));
+        }
+        UIManager.inst.GenerateFoodBar(spiceInst);
+
+        return obj;
+    }
     
     IEnumerator OpenAndPourCoroutine()
     {
         float timer = 0;
+        if (particle != null) particle.Play();
         while (timer < 2f)
         {
             // open lid, enable particle
@@ -45,7 +65,6 @@ public class Spice : Ingredient
                 lidTr.localPosition = Vector3.Lerp(Vector3.zero, new Vector3(0.05f, 0, 0.1f), Mathf.Min(timer, 1));
                 lidTr.localRotation = Quaternion.Slerp(Quaternion.Euler(0, 0, 0), Quaternion.Euler(0, 90, 0), Mathf.Min(timer, 1));
             }
-            if (particle != null) particle.Play();
             timer += Time.deltaTime;
             yield return new WaitForFixedUpdate();
         }

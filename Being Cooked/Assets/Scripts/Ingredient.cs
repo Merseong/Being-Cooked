@@ -44,7 +44,10 @@ public abstract class Ingredient : MonoBehaviour
 
     public abstract void IntoPot();
 
-    public abstract void AfterPot();
+    public void AfterPot()
+    {
+        transform.parent = GameManager.inst.pot.transform;
+    }
 
     public void EnterControl()
     {

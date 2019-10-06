@@ -7,7 +7,7 @@ public class CookingPot : MonoBehaviour
 {
     public Transform camPos;
     public Transform spicePos;
-    private List<GameObject> addIngred = new List<GameObject>();
+    public List<GameObject> addIngred = new List<GameObject>();
 
     public float[] finalFlavor = new float[6];
     public Color soupColor;
@@ -16,6 +16,8 @@ public class CookingPot : MonoBehaviour
 
     public float changeTime = 4;
     public GoalFood goal;
+
+    public bool isCooking = true;
 
     private Material mat;
     private float lastCol = 0;
@@ -76,15 +78,18 @@ public class CookingPot : MonoBehaviour
                 finalFlavor[j] += flavor[j];
             }
         }
-        Debug.Log(finalFlavor[0]);
+        //Debug.Log(finalFlavor[0]);
         return finalFlavor;
     }
 
     private void Update()
     {
-        for (int i = 0; i < addIngred.Count; i++)
+        if (isCooking)
         {
-            addIngred[i].GetComponent<Ingredient>().cookedTime += Time.deltaTime;
+            for (int i = 0; i < addIngred.Count; i++)
+            {
+                addIngred[i].GetComponent<Ingredient>().cookedTime += Time.deltaTime;
+            }
         }
     }
 }

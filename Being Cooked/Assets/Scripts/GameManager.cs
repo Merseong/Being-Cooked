@@ -18,4 +18,16 @@ public class GameManager : MonoBehaviour
     public CameraMove cameraMove;
     public Transform director;
     public CookingPot pot;
+
+    public float[] finalTaste;
+    public HashSet<string> finalIngredients = new HashSet<string>();
+
+    public float[] recipeTaste = new float[]
+    {
+        0, 70, 90, 10, 30, 50
+    };
+    public string[] recipeIngredients = new string[]
+    {
+        "MaraSauce", "Mokee", "Chili"
+    };
 }

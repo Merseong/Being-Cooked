@@ -10,9 +10,11 @@ public class CookingPot : MonoBehaviour
 
     public float[] finalFlavor = new float[6];
     public Color soupColor;
-
     [HideInInspector]
-    public float cTime;
+    public Color save;
+
+    public float changeTime = 4;
+    public GoalFood goal;
 
     private Material mat;
 
@@ -30,22 +32,21 @@ public class CookingPot : MonoBehaviour
             addIngred.Add(other.gameObject);
             other.GetComponent<Ingredient>().IntoPot();
             Debug.Log(other.GetComponent<Ingredient>().soupColor);
+            save = soupColor;
             StartCoroutine(ChangingColor(other.GetComponent<Ingredient>().soupColor));
         }
     }
     IEnumerator ChangingColor(Color color)
     {
-
-        float totalTime = 4;
-        cTime = 0;
-        for (; cTime < totalTime; cTime += Time.deltaTime)
+        float cTime = 0;
+        for (; cTime < changeTime; cTime += Time.deltaTime)
         {
-            soupColor = Color.Lerp(soupColor, soupColor * color, cTime / totalTime);
+            soupColor = Color.Lerp(save, save * color, cTime / changeTime);
             mat.color = soupColor;
             yield return null;
         }
     }
-    public float[] decideFlavor() //생각 생각
+    public float[] decideFlavor() //잘 작동하나 확인해봐야함
     {
         for (int a = 0; a < 6; a++)
         {
@@ -60,6 +61,7 @@ public class CookingPot : MonoBehaviour
                 finalFlavor[j] += flavor[j];
             }
         }
+        Debug.Log(finalFlavor[0]);
         return finalFlavor;
     }
 
@@ -69,6 +71,5 @@ public class CookingPot : MonoBehaviour
         {
             addIngred[i].GetComponent<Ingredient>().cookedTime += Time.deltaTime;
         }
-        
     }
 }

@@ -11,6 +11,8 @@ public class CameraMove : MonoBehaviour
     public bool isCameraMoving = false;
     public bool isTargeting = false;
 
+    public CookButton button;
+
     private Vector3 beforeLocalPos;
     private Quaternion beforeLocalRot;
 
@@ -90,6 +92,7 @@ public class CameraMove : MonoBehaviour
                             var pot = hit.transform.GetComponentInParent<CookingPot>();
                             isTargeting = true;
                             MoveTo(pot.camPos, 0, pot.transform);
+                            button.gameObject.SetActive(true);
                             break;
                     }
                 }
@@ -113,6 +116,7 @@ public class CameraMove : MonoBehaviour
                     case "Pot":
                         GameManager.inst.cameraFollow.ResetCamera();
                         isTargeting = false;
+                        button.gameObject.SetActive(false);
                         break;
                 }
             }

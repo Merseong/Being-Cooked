@@ -11,12 +11,14 @@ public class CookButton : MonoBehaviour
     [HideInInspector]
     public float[] goalFlavor = new float[6];
     public CookingPot pot;
+    public Image scriptBox;
     public Text script;
     public string[] textTaste = new string[48]; // 맛에 따른 맛보기 문장 집어넣어야함
 
     public void cookTaste()
     {
         finalFlavor = pot.decideFlavor();
+        scriptBox.gameObject.SetActive(true);
         for(int i =0; i <6; i++)
         {
             if (finalFlavor[i] < -75)
@@ -51,12 +53,13 @@ public class CookButton : MonoBehaviour
             {
                 script.text = textTaste[i * 8 - 1];
             }
-            while (!Input.GetMouseButtonDown(0))
+            while (!Input.GetMouseButtonDown(0))//얘도 키다운으로 바꿀까
             {
 
             }
             Debug.Log("Yammy!");
         }
+        scriptBox.gameObject.SetActive(false);
     }
     public void cookEnd()
     {

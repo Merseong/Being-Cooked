@@ -93,6 +93,7 @@ public class CameraMove : MonoBehaviour
                             isTargeting = true;
                             MoveTo(pot.camPos, 0, pot.transform);
                             button.gameObject.SetActive(true);
+                            button.scriptBox.gameObject.SetActive(false);
                             break;
                     }
                 }

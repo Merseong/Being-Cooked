@@ -126,26 +126,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: Kiwi
-  cookingTime: 10
+  type: 0
+  cookingTime: 40
   isProcessed: 1
-  soupColor: {r: 0.54580307, g: 0.9811321, b: 0.50445, a: 1}
+  soupColor: {r: 0.881, g: 0.9811321, b: 0.916, a: 1}
   size: 3
   cookedTime: 0
   canControl: 1
   beforeFlavor:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 5
+  - 1
+  - -3
+  - 14
+  - 2
+  - 12
   afterFlavor:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 13
+  - 2
+  - -6
+  - 19
+  - 1
+  - 15
 --- !u!114 &1363669804671203071
 MonoBehaviour:
   m_ObjectHideFlags: 0

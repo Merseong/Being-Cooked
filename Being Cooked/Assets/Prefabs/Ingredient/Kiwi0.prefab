@@ -112,26 +112,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: Kiwi
-  cookingTime: 10
+  type: 0
+  cookingTime: 60
   isProcessed: 0
   soupColor: {r: 1, g: 1, b: 1, a: 1}
   size: 4
   cookedTime: 0
   canControl: 1
   beforeFlavor:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - -5
+  - 3
+  - -5
+  - 10
+  - 5
+  - 7
   afterFlavor:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 15
+  - 1
+  - -10
+  - 15
+  - 3
+  - 15
 --- !u!114 &3174405737023008509
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -158,7 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: Chili
-  cookingTime: 10
+  type: 0
+  cookingTime: 40
   isProcessed: 0
   soupColor: {r: 1, g: 0.95, b: 0.95, a: 1}
   size: 3
@@ -167,14 +168,14 @@ MonoBehaviour:
   beforeFlavor:
   - 0
   - 0
+  - 14
   - 0
-  - 0
-  - 0
-  - 0
+  - 5
+  - 2
   afterFlavor:
   - 0
   - 0
+  - 17
   - 0
-  - 0
-  - 0
-  - 0
+  - 10
+  - 5

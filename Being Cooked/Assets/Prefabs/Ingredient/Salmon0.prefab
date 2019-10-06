@@ -126,26 +126,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: Salmon
-  cookingTime: 10
+  type: 0
+  cookingTime: 90
   isProcessed: 0
   soupColor: {r: 1, g: 1, b: 1, a: 1}
   size: 3
   cookedTime: 0
   canControl: 1
   beforeFlavor:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 5
+  - 10
+  - 5
+  - 5
+  - 20
+  - 8
   afterFlavor:
+  - 10
+  - 5
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 5
+  - 5
+  - 16
 --- !u!114 &6990188335051720245
 MonoBehaviour:
   m_ObjectHideFlags: 0

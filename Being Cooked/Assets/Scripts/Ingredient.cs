@@ -13,6 +13,12 @@ public enum Flavor
     감칠맛
 }
 
+public enum IngredientType
+{
+    Solid,
+    Spice
+}
+
 [RequireComponent(typeof (CharacterMove))]
 [RequireComponent(typeof (Outline))]
 [SerializeField]
@@ -20,13 +26,12 @@ public abstract class Ingredient : MonoBehaviour
 {
     [Header("Ingredient Value")]
     public string foodName = "";
+    public IngredientType type;
     public float cookingTime = 10;
     public bool isProcessed = false;
     public Color soupColor;
     public float size = 3;
-    [HideInInspector]
     public float cookedTime = 0;
-    [HideInInspector]
     public bool canControl = true;
 
     [Header("Flavor Value")]
@@ -95,5 +100,11 @@ public abstract class Ingredient : MonoBehaviour
         GetComponent<Outline>().enabled = false;
         characterMove = GetComponent<CharacterMove>();
         characterMove.enabled = false;
+        AfterStart();
+    }
+
+    protected virtual void AfterStart()
+    {
+
     }
 }

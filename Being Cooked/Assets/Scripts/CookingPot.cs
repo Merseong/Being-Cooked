@@ -6,6 +6,7 @@ using cakeslice;
 public class CookingPot : MonoBehaviour
 {
     public Transform camPos;
+    public Transform spicePos;
     private List<GameObject> addIngred = new List<GameObject>();
 
     public float[] finalFlavor = new float[6];
@@ -17,6 +18,7 @@ public class CookingPot : MonoBehaviour
     public GoalFood goal;
 
     private Material mat;
+    private float lastCol = 0;
 
     private void Start()
     {
@@ -27,13 +29,26 @@ public class CookingPot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Ingredient"))
+        if (other.CompareTag("Ingredient") && lastCol + 5 < Time.time)
         {
-            addIngred.Add(other.gameObject);
-            other.GetComponent<Ingredient>().IntoPot();
-            Debug.Log(other.GetComponent<Ingredient>().soupColor);
-            save = soupColor;
-            StartCoroutine(ChangingColor(other.GetComponent<Ingredient>().soupColor));
+            lastCol = Time.time;
+            var ing = other.GetComponent<Ingredient>();
+            if (ing.type == IngredientType.Solid)
+            {
+                addIngred.Add(other.gameObject);
+                ing.IntoPot();
+                //Debug.Log(ing.soupColor);
+                save = soupColor;
+                StartCoroutine(ChangingColor(ing.soupColor));
+            }
+            else if (ing.type == IngredientType.Spice)
+            {
+                var spice = other.GetComponent<Spice>();
+                spice.IntoPot();
+                addIngred.Add(spice.GetSpiceObj());
+                save = soupColor;
+                StartCoroutine(ChangingColor(spice.soupColor));
+            }
         }
     }
     IEnumerator ChangingColor(Color color)
@@ -52,7 +67,7 @@ public class CookingPot : MonoBehaviour
         {
             finalFlavor[a] = 0;
         }
-        for (int i = 0; i <= addIngred.Count; i++)
+        for (int i = 0; i < addIngred.Count; i++)
         {
             float[] flavor = addIngred[i].GetComponent<Ingredient>().GetFlavor();
 
@@ -67,7 +82,7 @@ public class CookingPot : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i <= addIngred.Count; i++)
+        for (int i = 0; i < addIngred.Count; i++)
         {
             addIngred[i].GetComponent<Ingredient>().cookedTime += Time.deltaTime;
         }

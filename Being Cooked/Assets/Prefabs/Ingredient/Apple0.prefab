@@ -125,26 +125,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: Apple
-  cookingTime: 10
+  type: 0
+  cookingTime: 90
   isProcessed: 0
   soupColor: {r: 1, g: 1, b: 1, a: 1}
   size: 4
   cookedTime: 0
   canControl: 1
   beforeFlavor:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 7
+  - 2
+  - -3
+  - 3
+  - 3
+  - 8
   afterFlavor:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 13
+  - 2
+  - -5
+  - 7
+  - 2
+  - 10
 --- !u!114 &7028417119570445963
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class CookingPot : MonoBehaviour
     public Color save;
 
     public float changeTime = 4;
+    public GoalFood goal;
 
     private Material mat;
 
@@ -45,7 +46,7 @@ public class CookingPot : MonoBehaviour
             yield return null;
         }
     }
-    public float[] decideFlavor() //생각 생각
+    public float[] decideFlavor() //잘 작동하나 확인해봐야함
     {
         for (int a = 0; a < 6; a++)
         {
@@ -60,6 +61,7 @@ public class CookingPot : MonoBehaviour
                 finalFlavor[j] += flavor[j];
             }
         }
+        Debug.Log(finalFlavor[0]);
         return finalFlavor;
     }
 
@@ -69,6 +71,5 @@ public class CookingPot : MonoBehaviour
         {
             addIngred[i].GetComponent<Ingredient>().cookedTime += Time.deltaTime;
         }
-        
     }
 }

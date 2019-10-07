@@ -4801,7 +4801,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77870279997135715}
-  m_Mesh: {fileID: 8201437419870775723, guid: 8029f5416c6e4eb4b9c6e3f056953fcb, type: 3}
+  m_Mesh: {fileID: 8201437419870775723, guid: 755af308f34857349a918ca4a9174fe2, type: 3}
 --- !u!23 &8462191335858516601
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4879,7 +4879,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4265873451590469202}
-  m_Mesh: {fileID: 1215230190209833024, guid: 8029f5416c6e4eb4b9c6e3f056953fcb, type: 3}
+  m_Mesh: {fileID: 1215230190209833024, guid: 755af308f34857349a918ca4a9174fe2, type: 3}
 --- !u!23 &6789570591802983341
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4957,7 +4957,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7342443625045035855}
-  m_Mesh: {fileID: -2157731557071279394, guid: 8029f5416c6e4eb4b9c6e3f056953fcb, type: 3}
+  m_Mesh: {fileID: -2157731557071279394, guid: 755af308f34857349a918ca4a9174fe2, type: 3}
 --- !u!23 &135090847766013994
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5045,7 +5045,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7400735741331216461}
-  m_Mesh: {fileID: 6121590469811200223, guid: 8029f5416c6e4eb4b9c6e3f056953fcb, type: 3}
+  m_Mesh: {fileID: 6121590469811200223, guid: 755af308f34857349a918ca4a9174fe2, type: 3}
 --- !u!23 &9117651788899003537
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5127,9 +5127,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodName: MaraSauce
   type: 0
-  cookingTime: 40
+  cookingTime: 60
   isProcessed: 0
-  soupColor: {r: 1, g: 0.804, b: 0.79, a: 1}
+  soupColor: {r: 0.7830189, g: 0.2609438, b: 0.21791564, a: 1}
   size: 4
   cookedTime: 0
   canControl: 1

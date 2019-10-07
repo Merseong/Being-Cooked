@@ -30,13 +30,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9005998537185138974}
-  m_LocalRotation: {x: -0.6956424, y: 0.1268137, z: 0.1268137, w: 0.69564235}
+  m_LocalRotation: {x: -0.6956422, y: 0.12681471, z: 0.12681471, w: 0.6956422}
   m_LocalPosition: {x: -8.14, y: 43.07, z: -82.96}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 20.663}
 --- !u!33 &4034069214770909499
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9005998537185138974}
-  m_Mesh: {fileID: -462981019419857548, guid: 4f91e02ae435b5f46b1cff94cc80d7c5, type: 3}
+  m_Mesh: {fileID: -462981019419857548, guid: edbe316a322efd0429e4a4b817c54ff8, type: 3}
 --- !u!23 &7261893838712188354
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -124,10 +124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a952b5cf3d4055e49aac881ae96935fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodName: 
+  foodName: CheongGeongChae
   type: 0
   cookingTime: 10
-  isProcessed: 0
+  isProcessed: 1
   soupColor: {r: 0, g: 0, b: 0, a: 0}
   size: 3
   cookedTime: 0

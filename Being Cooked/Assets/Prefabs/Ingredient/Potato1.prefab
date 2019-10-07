@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497089426562589034}
-  m_Mesh: {fileID: -5495902117074765545, guid: 1d4cafec3986f1840a35b6ab8c3bd000, type: 3}
+  m_Mesh: {fileID: -5495902117074765545, guid: 709119abcaeb03c4290fbce4699f381a, type: 3}
 --- !u!23 &1497089426562589012
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: Potato
+  type: 0
   cookingTime: 50
   isProcessed: 1
   soupColor: {r: 1, g: 1, b: 1, a: 1}

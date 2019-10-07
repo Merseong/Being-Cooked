@@ -30,13 +30,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3298765294798373952}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -2.736782, y: 42.905003, z: -81.73283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &7406115612902149221
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3298765294798373952}
-  m_Mesh: {fileID: -462981019419857548, guid: ece5d8a3a53cb0a47a83e6d9b2d1ab5a, type: 3}
+  m_Mesh: {fileID: -462981019419857548, guid: d480d3ee2ae53be41b709f386904fb28, type: 3}
 --- !u!23 &3889781328652677276
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -156,10 +156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a952b5cf3d4055e49aac881ae96935fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodName: 
+  foodName: Shrimp
   type: 0
   cookingTime: 10
-  isProcessed: 0
+  isProcessed: 1
   soupColor: {r: 0, g: 0, b: 0, a: 0}
   size: 3
   cookedTime: 0

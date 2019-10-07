@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CookButton : MonoBehaviour
@@ -8,16 +9,14 @@ public class CookButton : MonoBehaviour
     public Button tasteButton;
     public Button endButton;
     public float[] finalFlavor = new float[6];
-    [HideInInspector]
-    public float[] goalFlavor = new float[6];
-    public CookingPot pot;
+
     public Image scriptBox;
     public Text script;
     public string[] textTaste = new string[48]; // 맛에 따른 맛보기 문장 집어넣어야함
 
     public void cookTaste()
     {
-        finalFlavor = pot.decideFlavor();
+        finalFlavor = GameManager.inst.pot.decideFlavor();
         scriptBox.gameObject.SetActive(true);
         for(int i =0; i <6; i++)
         {
@@ -63,15 +62,35 @@ public class CookButton : MonoBehaviour
     }
     public void cookEnd()
     {
-        finalFlavor = pot.decideFlavor();
-        goalFlavor = pot.goal.goalFlavor;
-        //아마 엔딩 씬으로 변환
-        Debug.Log("The end");
+        GameManager.inst.cameraMove.isCameraMoving = true;
+
+        finalFlavor = GameManager.inst.pot.decideFlavor();
+        GameManager.inst.finalTaste = finalFlavor;
+        for (int i = 0; i < GameManager.inst.pot.addIngred.Count; i++)
+        {
+            GameManager.inst.finalIngredients.Add(GameManager.inst.pot.addIngred[i].GetComponent<Ingredient>().foodName);
+            //Debug.Log(GameManager.inst.pot.addIngred[i].GetComponent<Ingredient>().foodName);
+        }
+
+        SceneManager.LoadScene("FinalScene", LoadSceneMode.Additive);
+        var finalScene = SceneManager.GetSceneByName("FinalScene");
+        GameManager.inst.pot.isCooking = false;
+        GameManager.inst.pot.transform.parent = null;
+        SceneManager.MoveGameObjectToScene(GameManager.inst.pot.gameObject, finalScene);
+        SceneManager.MoveGameObjectToScene(GameManager.inst.gameObject, finalScene);
+
+        Camera.main.gameObject.SetActive(false);
+        UIManager.inst.gameObject.SetActive(false);
+        GameManager.inst.cameraFollow.target = GameManager.inst.transform;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
+
     public void Start()
     {
         gameObject.SetActive(false);
     }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
@@ -82,10 +101,9 @@ public class CookButton : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
-            //cookEnd(); 
-            //위에 되는지 나중에 다시 확인, 눌리는 애니메이션? 추가 해야함
+            // 눌리는 애니메이션 추가해야됨
             Debug.Log("Cook End");
+            cookEnd();
         }
-
     }
 }

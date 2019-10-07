@@ -21,11 +21,6 @@ public class Spice : Ingredient
         originRot = transform.rotation;
     }
 
-    public override void AfterPot()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public override void IntoPot()
     {
         rb.isKinematic = true;
@@ -37,7 +32,7 @@ public class Spice : Ingredient
 
     public GameObject GetSpiceObj()
     {
-        var obj = Instantiate(emptySpice);
+        var obj = Instantiate(emptySpice, GameManager.inst.pot.transform);
         obj.transform.position = GameManager.inst.pot.spicePos.position;
         var spiceInst = obj.GetComponent<Ingredient>();
         System.Type type = spiceInst.GetType();

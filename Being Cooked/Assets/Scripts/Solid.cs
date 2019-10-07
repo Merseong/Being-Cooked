@@ -5,11 +5,6 @@ using UnityEditor;
 
 public class Solid : Ingredient
 {
-    public override void AfterPot()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public override void IntoPot()
     {
         GameManager.inst.cameraFollow.StopAndResetCamera(2);
@@ -22,5 +17,6 @@ public class Solid : Ingredient
     {
         characterMove.enabled = false;
         UIManager.inst.GenerateFoodBar(this as Ingredient);
+        AfterPot();
     }
 }

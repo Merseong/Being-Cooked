@@ -8,6 +8,9 @@ public class FinalTester : MonoBehaviour
 {
     public GameObject mainPlane;
     public Text answerText;
+    public SpriteRenderer spriteRenderer;
+
+    public Sprite doneSprite;
 
     private CookingPot pot;
 
@@ -28,6 +31,7 @@ public class FinalTester : MonoBehaviour
 
     void CheckRecipe()
     {
+        bool isPerpect = true;
         // check taste
         for (int i = 0; i < 6; i++)
         {
@@ -38,6 +42,7 @@ public class FinalTester : MonoBehaviour
                     GameManager.inst.finalTaste[i] > tasteArea[j] && GameManager.inst.recipeTaste[i] <= tasteArea[j + 1])
                 {
                     isInArea[i] = true;
+                    isPerpect = false;
                     break;
                 }   
             }
@@ -81,8 +86,14 @@ public class FinalTester : MonoBehaviour
             if (!GameManager.inst.finalIngredients.Contains(GameManager.inst.recipeIngredients[i]))
             {
                 answerText.text += "중요한 재료가 몇 부족한것같다.\n";
+                isPerpect = false;
                 break;
             }
+        }
+        if (isPerpect)
+        {
+            answerText.text += "완벽한 요리다!!\n";
+            spriteRenderer.sprite = doneSprite;
         }
     }
 }

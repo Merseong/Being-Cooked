@@ -81,6 +81,7 @@ public class CookButton : MonoBehaviour
 
         Camera.main.gameObject.SetActive(false);
         UIManager.inst.gameObject.SetActive(false);
+        GameManager.inst.cameraFollow.target = GameManager.inst.transform;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

@@ -10,11 +10,13 @@ public class CameraMove : MonoBehaviour
 
     public bool isCameraMoving = false;
     public bool isTargeting = false;
+    public bool isZoomed = false;
 
     public CookButton button;
 
     private Vector3 beforeLocalPos;
     private Quaternion beforeLocalRot;
+    private Camera mainCam;
 
     private Transform beforeHit;
 
@@ -43,6 +45,7 @@ public class CameraMove : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        mainCam = GetComponent<Camera>();
     }
 
     void Update()
@@ -62,6 +65,18 @@ public class CameraMove : MonoBehaviour
 
             transform.RotateAround(GameManager.inst.cameraPoser.position, Vector3.up, mouseMoveX);
             transform.RotateAround(GameManager.inst.cameraPoser.position, transform.right, -mouseMoveY);
+
+            if (Input.GetMouseButtonDown(2))
+            {
+                if (isZoomed)
+                {
+                    ZoomCamera(false);
+                }
+                else
+                {
+                    ZoomCamera(true);
+                }
+            }
         }
 
         if (!isTargeting)
@@ -80,6 +95,7 @@ public class CameraMove : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0))
                 {
+                    if (isZoomed) ZoomCamera(false);
                     hit.transform.GetComponent<Outline>().enabled = false;
                     UIManager.inst.midDot.enabled = false;
                     switch (hit.transform.tag)
@@ -137,5 +153,36 @@ public class CameraMove : MonoBehaviour
         camToParent.y = 0;
 
         if (camToParent.magnitude > 0) GameManager.inst.director.forward = camToParent;
+    }
+
+    void ZoomCamera(bool isZoom)
+    {
+        isZoomed = isZoom;
+        StartCoroutine(ZoomCameraCoroutine(isZoom));
+    }
+
+    IEnumerator ZoomCameraCoroutine(bool isZoom)
+    {
+        float timer = 0;
+        if (isZoom)
+        {
+            while (timer < 0.5f)
+            {
+                mainCam.fieldOfView = Mathf.Lerp(60, 30, timer * 2);
+                sensitivity = Mathf.Lerp(9, 2, timer * 2);
+                timer += Time.deltaTime;
+                yield return new WaitForFixedUpdate();
+            }
+        }
+        else
+        {
+            while (timer < 0.5f)
+            {
+                mainCam.fieldOfView = Mathf.Lerp(30, 60, timer * 2);
+                sensitivity = Mathf.Lerp(2, 9, timer * 2);
+                timer += Time.deltaTime;
+                yield return new WaitForFixedUpdate();
+            }
+        }
     }
 }

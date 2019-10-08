@@ -5126,6 +5126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: MaraSauce
+  boardName: "\uB9C8\uB77C\uC18C\uC2A4"
   type: 0
   cookingTime: 60
   isProcessed: 0

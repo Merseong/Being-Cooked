@@ -26,6 +26,7 @@ public abstract class Ingredient : MonoBehaviour
 {
     [Header("Ingredient Value")]
     public string foodName = "";
+    public string boardName = "";
     public IngredientType type;
     public float cookingTime = 10;
     public bool isProcessed = false;
@@ -47,6 +48,7 @@ public abstract class Ingredient : MonoBehaviour
     public void AfterPot()
     {
         transform.parent = GameManager.inst.pot.transform;
+        BoardManager.inst.RemoveIngredient(this);
     }
 
     public void EnterControl()
@@ -103,6 +105,7 @@ public abstract class Ingredient : MonoBehaviour
         GetComponent<Outline>().enabled = false;
         characterMove = GetComponent<CharacterMove>();
         characterMove.enabled = false;
+        BoardManager.inst.AddIngredient(this);
         AfterStart();
     }
 

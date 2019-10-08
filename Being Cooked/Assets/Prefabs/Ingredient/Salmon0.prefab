@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: Salmon
+  boardName: "\uC5F0\uC5B4"
   type: 0
   cookingTime: 90
   isProcessed: 0

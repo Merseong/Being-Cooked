@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: Apple
+  boardName: "\uC0AC\uACFC"
   type: 0
   cookingTime: 90
   isProcessed: 0

@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: Kiwi
+  boardName: "\uD0A4\uC704"
   type: 0
   cookingTime: 40
   isProcessed: 1

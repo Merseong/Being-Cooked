@@ -8,6 +8,7 @@ public class CookingPot : MonoBehaviour
     public Transform camPos;
     public Transform spicePos;
     public List<GameObject> addIngred = new List<GameObject>();
+    public GameObject potObj;
 
     public float[] finalFlavor = new float[6];
     public Color soupColor;
@@ -25,7 +26,7 @@ public class CookingPot : MonoBehaviour
     private void Start()
     {
         GetComponentInChildren<Outline>().enabled = false;
-        mat = GetComponentInChildren<MeshRenderer>().material;
+        mat = potObj.GetComponent<MeshRenderer>().material;
         soupColor = mat.color;
     }
 

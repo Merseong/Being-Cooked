@@ -134,19 +134,19 @@ MonoBehaviour:
   cookedTime: 0
   canControl: 1
   beforeFlavor:
-  - 5
-  - 10
-  - 5
-  - 5
-  - 20
+  - -15
+  - 12
+  - -7
+  - -15
+  - 8
   - 8
   afterFlavor:
-  - 10
-  - 5
-  - 0
-  - 5
-  - 5
-  - 16
+  - -4
+  - 7
+  - -8
+  - -5
+  - -3
+  - 14
 --- !u!114 &6990188335051720245
 MonoBehaviour:
   m_ObjectHideFlags: 0

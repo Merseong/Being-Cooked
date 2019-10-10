@@ -126,26 +126,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodName: Mokee
   type: 0
-  cookingTime: 10
+  cookingTime: 70
   isProcessed: 0
-  soupColor: {r: 0, g: 0, b: 0, a: 0}
+  soupColor: {r: 1, g: 1, b: 1, a: 1}
   size: 3
   cookedTime: 0
   canControl: 1
   beforeFlavor:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - -11
+  - 4
+  - -6
+  - -11
+  - 8
+  - -8
   afterFlavor:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - -6
+  - 7
+  - -8
+  - -7
+  - 2
+  - -8
 --- !u!114 &2297537842025372979
 MonoBehaviour:
   m_ObjectHideFlags: 0

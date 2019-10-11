@@ -18,9 +18,9 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
-    public void StopAndResetCamera(float time)
+    public void StopAndResetCamera(float time, Transform lookat)
     {
-        StartCoroutine(StopCameraForSecond(time));
+        StartCoroutine(StopCameraForSecond(time, lookat));
     }
 
     public void StopCamera(float time)
@@ -28,15 +28,15 @@ public class CameraFollow : MonoBehaviour
         StartCoroutine(JustStopCameraForSecond(time));
     }
 
-    public void ResetCamera()
+    public void ResetCamera(Transform lookat)
     {
         UIManager.inst.midDot.enabled = true;
-        GameManager.inst.cameraMove.MoveTo(GameManager.inst.transform, 0, GameManager.inst.pot.transform, true);
+        GameManager.inst.cameraMove.MoveTo(GameManager.inst.transform, 0, lookat, true);
         GameManager.inst.cameraMove.isTargeting = false;
         isStoped = false;
     }
 
-    IEnumerator StopCameraForSecond(float time)
+    IEnumerator StopCameraForSecond(float time, Transform lookat)
     {
         float timer = 0;
         while (timer < time)
@@ -45,7 +45,7 @@ public class CameraFollow : MonoBehaviour
             isStoped = true;
             timer += Time.deltaTime;
         }
-        ResetCamera();
+        ResetCamera(lookat);
     }
 
     IEnumerator JustStopCameraForSecond(float time)

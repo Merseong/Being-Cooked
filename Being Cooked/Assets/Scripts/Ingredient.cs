@@ -67,7 +67,7 @@ public abstract class Ingredient : MonoBehaviour
     }
     public void ExitControl()
     {
-        GameManager.inst.cameraFollow.ResetCamera();
+        GameManager.inst.cameraFollow.ResetCamera(transform);
         characterMove.enabled = false;
     }
 

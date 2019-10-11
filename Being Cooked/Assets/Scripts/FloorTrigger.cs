@@ -9,7 +9,7 @@ public class FloorTrigger : MonoBehaviour
         if (other.CompareTag("Ingredient"))
         {
             var ing = other.GetComponent<Ingredient>();
-            GameManager.inst.cameraFollow.StopAndResetCamera(1);
+            GameManager.inst.cameraFollow.StopAndResetCamera(2, GameManager.inst.pot.transform);
             ing.canControl = false;
             StartCoroutine(WaitForExitControl(ing));
         }

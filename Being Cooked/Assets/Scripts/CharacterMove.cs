@@ -10,6 +10,7 @@ public class CharacterMove : MonoBehaviour
     public int followCount = 20;
 
     private bool isJumped = false;
+    private bool isInAir = false;
     public bool isControlled = false;
 
     Rigidbody rb;
@@ -17,7 +18,13 @@ public class CharacterMove : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        isInAir = false;
         if (collision.transform.CompareTag("Respawn")) isJumped = false;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        isInAir = true;
     }
 
     private void OnEnable()
@@ -39,6 +46,11 @@ public class CharacterMove : MonoBehaviour
             Vector3 vertical = GameManager.inst.director.forward * Input.GetAxis("Vertical") * speed;
 
             rb.AddForce(horizontal + vertical);
+        }
+
+        if (isInAir)
+        {
+            rb.AddForce(Vector3.down * speed);
         }
 
         // jump control

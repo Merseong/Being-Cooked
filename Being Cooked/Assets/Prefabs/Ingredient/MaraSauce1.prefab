@@ -4890,17 +4890,17 @@ MonoBehaviour:
   canControl: 1
   beforeFlavor:
   - 0
-  - 5
   - 10
-  - 2
+  - 10
   - 3
+  - 5
   - 5
   afterFlavor:
   - 0
-  - 5
   - 10
-  - 2
+  - 10
   - 3
+  - 5
   - 5
   emptySpice: {fileID: 1769561942164204849, guid: 2959d455ed9625c4dba92b0175da472f,
     type: 3}

@@ -125,29 +125,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a952b5cf3d4055e49aac881ae96935fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodName: CheongGeongChae
   boardName: "\uCCAD\uACBD\uCC44"
+  foodName: CheongGeong
   type: 0
-  cookingTime: 10
+  cookingTime: 50
   isProcessed: 0
-  soupColor: {r: 0, g: 0, b: 0, a: 0}
+  soupColor: {r: 1, g: 1, b: 1, a: 1}
   size: 3
   cookedTime: 0
   canControl: 1
   beforeFlavor:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - -8
+  - -8
+  - -5
+  - 7
+  - 10
+  - -3
   afterFlavor:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - -6
+  - -10
+  - -8
+  - 2
+  - 6
+  - -10
 --- !u!114 &8405689003653222037
 MonoBehaviour:
   m_ObjectHideFlags: 0

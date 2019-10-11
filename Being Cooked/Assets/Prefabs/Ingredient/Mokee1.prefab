@@ -127,26 +127,26 @@ MonoBehaviour:
   foodName: Mokee
   boardName: "\uBAA9\uC774\uBC84\uC12F"
   type: 0
-  cookingTime: 10
+  cookingTime: 45
   isProcessed: 1
-  soupColor: {r: 0, g: 0, b: 0, a: 0}
-  size: 3
+  soupColor: {r: 1, g: 1, b: 1, a: 0}
+  size: 2
   cookedTime: 0
   canControl: 1
   beforeFlavor:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - -6
+  - 3
+  - -6
+  - -10
+  - 10
+  - -8
   afterFlavor:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - -9
+  - 8
+  - -8
+  - -6
+  - 1
+  - -8
 --- !u!114 &7592172694862798507
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5128,7 +5128,7 @@ MonoBehaviour:
   foodName: MaraSauce
   boardName: "\uB9C8\uB77C\uC18C\uC2A4"
   type: 0
-  cookingTime: 60
+  cookingTime: 40
   isProcessed: 0
   soupColor: {r: 0.7830189, g: 0.2609438, b: 0.21791564, a: 1}
   size: 4
@@ -5136,17 +5136,17 @@ MonoBehaviour:
   canControl: 1
   beforeFlavor:
   - 0
-  - 15
   - 20
-  - 3
+  - 20
   - 5
+  - 10
   - 10
   afterFlavor:
   - 0
-  - 15
   - 20
-  - 3
+  - 20
   - 5
+  - 10
   - 10
   emptySpice: {fileID: 1769561942164204849, guid: 2959d455ed9625c4dba92b0175da472f,
     type: 3}

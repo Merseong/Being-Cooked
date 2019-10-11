@@ -166,16 +166,16 @@ MonoBehaviour:
   cookedTime: 0
   canControl: 1
   beforeFlavor:
-  - 0
-  - 0
-  - 16
-  - 0
-  - 8
+  - -2
   - 5
+  - 12
+  - 4
+  - 10
+  - -5
   afterFlavor:
   - 0
-  - 0
-  - 20
-  - 0
-  - 10
+  - 5
+  - 18
   - 8
+  - 8
+  - -5

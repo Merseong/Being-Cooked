@@ -23,6 +23,11 @@ public class CameraFollow : MonoBehaviour
         StartCoroutine(StopCameraForSecond(time));
     }
 
+    public void StopCamera(float time)
+    {
+        StartCoroutine(JustStopCameraForSecond(time));
+    }
+
     public void ResetCamera()
     {
         UIManager.inst.midDot.enabled = true;
@@ -41,5 +46,18 @@ public class CameraFollow : MonoBehaviour
             timer += Time.deltaTime;
         }
         ResetCamera();
+    }
+
+    IEnumerator JustStopCameraForSecond(float time)
+    {
+        Debug.Log("Camera Stop!");
+        float timer = 0;
+        while (timer < time)
+        {
+            yield return new WaitForFixedUpdate();
+            isStoped = true;
+            timer += Time.deltaTime;
+        }
+        isStoped = false;
     }
 }

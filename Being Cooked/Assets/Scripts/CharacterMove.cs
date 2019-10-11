@@ -56,7 +56,7 @@ public class CharacterMove : MonoBehaviour
         // jump control
         if (!isJumped && Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(Vector3.up * speed / 2, ForceMode.VelocityChange);
+            rb.AddForce(Vector3.up * speed, ForceMode.Impulse);
             isJumped = true;
         }
 

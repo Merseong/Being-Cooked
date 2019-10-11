@@ -11,6 +11,7 @@ public class Follower : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        cMove.transform.GetComponent<Ingredient>().followers.Add(transform);
     }
 
     private void Update()

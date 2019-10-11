@@ -130,7 +130,7 @@ MonoBehaviour:
   type: 0
   cookingTime: 40
   isProcessed: 1
-  soupColor: {r: 0.881, g: 0.9811321, b: 0.916, a: 1}
+  soupColor: {r: 0.909, g: 0.9528302, b: 0.7088665, a: 1}
   size: 3
   cookedTime: 0
   canControl: 1
@@ -148,6 +148,10 @@ MonoBehaviour:
   - 1
   - -15
   - 9
+  followerObj: {fileID: 2229357390000406156, guid: 5d983c6977e011143965a95716f0d2dd,
+    type: 3}
+  followerCount: 3
+  followers: []
 --- !u!114 &1363669804671203071
 MonoBehaviour:
   m_ObjectHideFlags: 0

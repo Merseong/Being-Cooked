@@ -179,3 +179,7 @@ MonoBehaviour:
   - 3
   - -5
   - 7
+  followerObj: {fileID: 4835264762312520731, guid: 1733f15ab4faf8a478881957a2f71385,
+    type: 3}
+  followerCount: 3
+  followers: []

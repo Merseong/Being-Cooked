@@ -41,6 +41,11 @@ public abstract class Ingredient : MonoBehaviour
     [Range(-20, 20)]
     public float[] afterFlavor = new float[6];
 
+    [Header("Followers")]
+    public GameObject followerObj;
+    public int followerCount = 0;
+    public List<Transform> followers;
+
     protected CharacterMove characterMove;
 
     public abstract void IntoPot();
@@ -48,6 +53,10 @@ public abstract class Ingredient : MonoBehaviour
     public void AfterPot()
     {
         transform.parent = GameManager.inst.pot.transform;
+        for (int i = 0; i < followers.Count; i++)
+        {
+            followers[i].parent = GameManager.inst.pot.transform;
+        }
         BoardManager.inst.RemoveIngredient(this);
     }
 

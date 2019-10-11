@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: Mokee
+  boardName: "\uBAA9\uC774\uBC84\uC12F"
   type: 0
   cookingTime: 10
   isProcessed: 1

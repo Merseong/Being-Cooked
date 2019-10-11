@@ -9,6 +9,7 @@ public class FinalTester : MonoBehaviour
     public GameObject mainPlane;
     public Text answerText;
     public SpriteRenderer spriteRenderer;
+    public Text timerText;
 
     public Sprite doneSprite;
 
@@ -19,6 +20,7 @@ public class FinalTester : MonoBehaviour
         SceneManager.SetActiveScene(gameObject.scene);
         pot = GameObject.Find("Pot").GetComponent<CookingPot>();
         pot.transform.position = mainPlane.transform.position;
+        timerText.text = GameManager.inst.sw.Elapsed.ToString();
 
         CheckRecipe();
     }

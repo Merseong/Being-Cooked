@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: Chili
+  boardName: "\uACE0\uCD94"
   type: 0
   cookingTime: 40
   isProcessed: 0

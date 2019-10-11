@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: Egg
+  boardName: "\uACC4\uB780"
   type: 0
   cookingTime: 120
   isProcessed: 0

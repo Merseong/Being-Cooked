@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Diagnostics;
+using debug = UnityEngine.Debug;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +13,24 @@ public class GameManager : MonoBehaviour
     {
         if (inst != null) Destroy(inst);
         inst = this;
+    }
+
+    public Stopwatch sw = new Stopwatch();
+    public Text swText;
+    public bool isTimeTracking = true;
+
+    private void Start()
+    {
+        sw.Reset();
+        sw.Start();
+    }
+
+    private void Update()
+    {
+        if (isTimeTracking)
+        {
+            swText.text = sw.Elapsed.ToString();
+        }
     }
 
     public Transform cameraPoser;

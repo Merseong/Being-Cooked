@@ -74,6 +74,9 @@ public class CookButton : MonoBehaviour
 
         SceneManager.LoadScene("FinalScene", LoadSceneMode.Additive);
         var finalScene = SceneManager.GetSceneByName("FinalScene");
+        GameManager.inst.cameraFollow.target = GameManager.inst.transform;
+        GameManager.inst.sw.Stop();
+        GameManager.inst.isTimeTracking = false;
         GameManager.inst.pot.isCooking = false;
         GameManager.inst.pot.transform.parent = null;
         SceneManager.MoveGameObjectToScene(GameManager.inst.pot.gameObject, finalScene);
@@ -81,7 +84,6 @@ public class CookButton : MonoBehaviour
 
         Camera.main.gameObject.SetActive(false);
         UIManager.inst.gameObject.SetActive(false);
-        GameManager.inst.cameraFollow.target = GameManager.inst.transform;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

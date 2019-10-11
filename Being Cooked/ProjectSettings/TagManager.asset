@@ -16,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - TextMesh
   - 
   - 
   - 
@@ -41,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: TextMesh
+    uniqueID: 2245477949
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

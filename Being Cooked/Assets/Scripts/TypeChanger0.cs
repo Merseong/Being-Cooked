@@ -17,7 +17,7 @@ public class TypeChanger0 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Ingredient") && lastIn + 3.5 < Time.time)
+        if (other.CompareTag("Ingredient") && lastIn + 3.5f < Time.time)
         {
             lastIn = Time.time;
             var ing = other.GetComponent <Ingredient>();
@@ -25,39 +25,31 @@ public class TypeChanger0 : MonoBehaviour
             /*other.GetComponent<Ingredient>().ExitControl();
             GameManager.inst.cameraMove.isTargeting = false;*/
 
-            GameManager.inst.cameraMove.MoveTo(camPos, 0, gameObject.transform.parent.gameObject.transform); //화긴해보자
-            //GameManager.inst.cameraFollow.StopCamera(2);
-            ing.canControl = false;
-            while (true)
-            {
-                if (!GameManager.inst.cameraFollow.isStoped)
-                    break;
-            }
-            if (!ing.isProcessed)//가공된 재료 생성, 타겟. 기존 재료 삭제
-            {
-                Destroy(other.gameObject);
-                //Instantiate<other.gameObject. name>
-            }
-            else //기존 재료 이동, 다시 타겟
-            {
-                /*other.GetComponent<Ingredient>().EnterControl();
-                GameManager.inst.cameraMove.isTargeting = true;*/
-                other.gameObject.transform.position = sponPos.position;
-                GameManager.inst.cameraMove.MoveTo(ing.transform, ing.size);
-                ing.canControl = true;
-            }
+            StartCoroutine(StartChanger(ing));
+
+        }
+    }
+    public void elapseIngredient(Ingredient ing)
+    {
+        if (!ing.isProcessed)//가공된 재료 생성, 타겟. 기존 재료 삭제
+        {
+            Destroy(ing.gameObject);
+            //Instantiate<other.gameObject. name> 재료 생성 + 부가재료 코루틴 만들기
+        }
+        else //기존 재료 이동, 다시 타겟
+        {
+            /*other.GetComponent<Ingredient>().EnterControl();
+            GameManager.inst.cameraMove.isTargeting = true;*/
+            ing.gameObject.transform.position = sponPos.position;
+            GameManager.inst.cameraMove.MoveTo(ing.transform, ing.size);
+            ing.canControl = true;
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    IEnumerator StartChanger (Ingredient ing)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameManager.inst.cameraMove.MoveTo(camPos, 0, gameObject.transform.parent.gameObject.transform);
+        yield return new WaitForSeconds(2);
+        GameManager.inst.cameraFollow.StopCameraForChanger(2, ing);
     }
 }

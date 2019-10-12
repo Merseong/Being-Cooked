@@ -5148,6 +5148,9 @@ MonoBehaviour:
   - 5
   - 10
   - 10
+  followerObj: {fileID: 0}
+  followerCount: 0
+  followers: []
   emptySpice: {fileID: 1769561942164204849, guid: 2959d455ed9625c4dba92b0175da472f,
     type: 3}
   lidTr: {fileID: 6509186568560662997}
@@ -5180,7 +5183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76003e21dd7ad341ba7dc952fc7ad62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 20
   followPos: []
   followCount: 20
   isControlled: 0

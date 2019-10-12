@@ -112,7 +112,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
-  m_Mesh: {fileID: 289301614986012343, guid: 19eb6f4affb27fc4086e755e6bf9b5d8, type: 3}
+  m_Mesh: {fileID: 289301614986012343, guid: 91eeaa93915bd9545baff0d893f45a07, type: 3}
 --- !u!114 &5631936177061379917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +148,9 @@ MonoBehaviour:
   - 0
   - 5
   - -7
+  followerObj: {fileID: 0}
+  followerCount: 0
+  followers: []
 --- !u!114 &5631936177061379916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76003e21dd7ad341ba7dc952fc7ad62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 20
   followPos: []
   followCount: 20
   isControlled: 0

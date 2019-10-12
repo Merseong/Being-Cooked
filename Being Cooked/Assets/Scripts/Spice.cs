@@ -26,7 +26,7 @@ public class Spice : Ingredient
         rb.isKinematic = true;
         rb.velocity = Vector3.zero;
         
-        GameManager.inst.cameraFollow.StopAndResetCamera(3);
+        GameManager.inst.cameraFollow.StopAndResetCamera(3, GameManager.inst.pot.transform);
         StartCoroutine(OpenAndPourCoroutine());
     }
 

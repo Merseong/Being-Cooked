@@ -96,7 +96,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
-  m_Mesh: {fileID: 289301614986012343, guid: 25190f1e6241ca142959f7f8a66fabca, type: 3}
+  m_Mesh: {fileID: 289301614986012343, guid: 2e558413593d84445b7933e20534a7e2, type: 3}
 --- !u!54 &240192108653343554
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &240192108653343582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76003e21dd7ad341ba7dc952fc7ad62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 20
   followPos: []
   followCount: 20
   isControlled: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   cookingTime: 40
   isProcessed: 1
   soupColor: {r: 1, g: 1, b: 1, a: 1}
-  size: 2
+  size: 2.5
   cookedTime: 0
   canControl: 1
   beforeFlavor:
@@ -180,3 +180,7 @@ MonoBehaviour:
   - 9
   - 7
   - 18
+  followerObj: {fileID: 9003314839987535695, guid: 760d55fe8c7e3f94ab5169281ec36ce5,
+    type: 3}
+  followerCount: 5
+  followers: []

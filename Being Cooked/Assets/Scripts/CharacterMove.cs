@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterMove : MonoBehaviour
 {
-    public float speed = 30;
+    public float speed = 20;
     public List<Vector3> followPos = new List<Vector3>();
     [HideInInspector]
     public int followCount = 20;
@@ -56,7 +56,7 @@ public class CharacterMove : MonoBehaviour
         // jump control
         if (!isJumped && Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(Vector3.up * speed / 2, ForceMode.VelocityChange);
+            rb.AddForce(Vector3.up * speed, ForceMode.Impulse);
             isJumped = true;
         }
 

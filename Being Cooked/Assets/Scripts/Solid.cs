@@ -7,7 +7,7 @@ public class Solid : Ingredient
 {
     public override void IntoPot()
     {
-        GameManager.inst.cameraFollow.StopAndResetCamera(2);
+        GameManager.inst.cameraFollow.StopAndResetCamera(2, GameManager.inst.pot.transform);
         characterMove.isControlled = false;
         Invoke("StopMove", 1);
         canControl = false;

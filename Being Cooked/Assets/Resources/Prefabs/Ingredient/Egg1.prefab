@@ -111,7 +111,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &228602757606880498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76003e21dd7ad341ba7dc952fc7ad62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 20
   followPos: []
   followCount: 20
   isControlled: 0
@@ -179,3 +179,7 @@ MonoBehaviour:
   - 3
   - -5
   - 7
+  followerObj: {fileID: 4835264762312520731, guid: 1733f15ab4faf8a478881957a2f71385,
+    type: 3}
+  followerCount: 3
+  followers: []

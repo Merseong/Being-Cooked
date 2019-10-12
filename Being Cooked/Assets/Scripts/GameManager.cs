@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Diagnostics;
 using debug = UnityEngine.Debug;
 
@@ -30,6 +31,10 @@ public class GameManager : MonoBehaviour
         if (isTimeTracking)
         {
             swText.text = sw.Elapsed.ToString();
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene("MainScene");
+            }
         }
     }
 

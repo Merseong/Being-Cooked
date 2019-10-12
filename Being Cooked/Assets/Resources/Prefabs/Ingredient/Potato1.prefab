@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76003e21dd7ad341ba7dc952fc7ad62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 20
   followPos: []
   followCount: 50
   isControlled: 0
@@ -163,6 +163,10 @@ MonoBehaviour:
   - 0
   - 1
   - -6
+  followerObj: {fileID: 2787819730278936236, guid: 492900c12f8be7049a3f5522d8ef2a11,
+    type: 3}
+  followerCount: 5
+  followers: []
 --- !u!114 &1497089426562589033
 MonoBehaviour:
   m_ObjectHideFlags: 0

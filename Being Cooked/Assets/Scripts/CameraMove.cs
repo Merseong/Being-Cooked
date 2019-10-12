@@ -31,9 +31,9 @@ public class CameraMove : MonoBehaviour
     IEnumerator Mover(Transform target, float howFar, bool looking)
     {
         float timer = 0;
-        while (timer < 1f)
+        while (timer < 0.5f)
         {
-            transform.localPosition = Vector3.Lerp(Vector3.zero, new Vector3(0,1,1) * howFar * 1.414f, timer);
+            transform.localPosition = Vector3.Lerp(Vector3.zero, new Vector3(0,1,1) * howFar * 1.414f, timer * 2);
             if (looking) transform.LookAt(target, Vector3.up);
             timer += Time.deltaTime;
             yield return new WaitForFixedUpdate();
@@ -131,7 +131,7 @@ public class CameraMove : MonoBehaviour
                         isTargeting = false;
                         break;
                     case "Pot":
-                        GameManager.inst.cameraFollow.ResetCamera();
+                        GameManager.inst.cameraFollow.ResetCamera(GameManager.inst.pot.transform);
                         isTargeting = false;
                         button.gameObject.SetActive(false);
                         break;

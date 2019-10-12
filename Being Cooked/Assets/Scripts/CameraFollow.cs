@@ -23,9 +23,13 @@ public class CameraFollow : MonoBehaviour
         StartCoroutine(StopCameraForSecond(time));
     }
 
-    public void StopCamera(float time)
+    public void StopCameraForChanger(float time, Ingredient ing, bool a)
     {
-        StartCoroutine(JustStopCameraForSecond(time));
+        ing.canControl = false;
+        if(a)
+            StartCoroutine(JustStopCameraForSecond1(time, ing));
+        else
+            StartCoroutine(JustStopCameraForSecond0(time, ing));
     }
 
     public void ResetCamera()
@@ -48,7 +52,7 @@ public class CameraFollow : MonoBehaviour
         ResetCamera();
     }
 
-    IEnumerator JustStopCameraForSecond(float time)
+    IEnumerator JustStopCameraForSecond0(float time, Ingredient ing)
     {
         Debug.Log("Camera Stop!");
         float timer = 0;
@@ -59,5 +63,20 @@ public class CameraFollow : MonoBehaviour
             timer += Time.deltaTime;
         }
         isStoped = false;
+        GameManager.inst.Typechanger0.elapseIngredient(ing);
+    }
+
+    IEnumerator JustStopCameraForSecond1(float time, Ingredient ing)
+    {
+        Debug.Log("Camera Stop!");
+        float timer = 0;
+        while (timer < time)
+        {
+            yield return new WaitForFixedUpdate();
+            isStoped = true;
+            timer += Time.deltaTime;
+        }
+        isStoped = false;
+        GameManager.inst.Typechanger1.elapseIngredient(ing);
     }
 }

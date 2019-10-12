@@ -236,7 +236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85032478}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.439, y: -0.239, z: 0}
+  m_LocalPosition: {x: 0.82, y: -0.239, z: 0}
   m_LocalScale: {x: 0.14627326, y: 0.14627318, z: 0.14627326}
   m_Children: []
   m_Father: {fileID: 150606023}
@@ -363,7 +363,7 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &113708208 stripped
 Transform:
@@ -383,6 +383,7 @@ GameObject:
   - component: {fileID: 150606022}
   - component: {fileID: 150606021}
   - component: {fileID: 150606020}
+  - component: {fileID: 150606019}
   m_Layer: 0
   m_Name: Type Changer 1
   m_TagString: Changer
@@ -390,6 +391,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &150606019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150606018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9717fc41c6bd6a0489cf9df01dd3bfb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camPos: {fileID: 1682077441}
+  inIngredient: {fileID: 0}
+  sponPos: {fileID: 1292379258}
 --- !u!65 &150606020
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -513,7 +529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4443969572754960, guid: be7467c8b40af9049abb15c8e59450e6, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4443969572754960, guid: be7467c8b40af9049abb15c8e59450e6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -639,6 +655,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190925652}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!84 &324381319
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 1920
+  m_Height: 1080
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 1
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &379552804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1013,7 +1064,7 @@ Transform:
   m_LocalScale: {x: 2.062373, y: 7.7950096, z: 3.850973}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &613411508
 GameObject:
@@ -1143,6 +1194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: 
+  boardName: 
   type: 0
   cookingTime: 1
   isProcessed: 0
@@ -1235,7 +1287,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &621367930
 MonoBehaviour:
@@ -1451,7 +1503,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.5e-44, y: 0, z: 1.25, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1481,11 +1533,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1389cb9391f8d6a478620ae2e3075c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swText: {fileID: 0}
+  isTimeTracking: 1
   cameraPoser: {fileID: 716268629}
   cameraFollow: {fileID: 716268630}
   cameraMove: {fileID: 963194229}
   director: {fileID: 1515360590}
   pot: {fileID: 1017271455}
+  finalTaste: []
+  Typechanger0: {fileID: 1416621200}
+  Typechanger1: {fileID: 150606019}
+  recipeTaste:
+  - 0
+  - 70
+  - 90
+  - 10
+  - 30
+  - 50
+  recipeIngredients:
+  - MaraSauce
+  - Mokee
+  - Chili
 --- !u!1 &716268628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,7 +1585,7 @@ Transform:
   - {fileID: 963194228}
   - {fileID: 1515360590}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &716268630
 MonoBehaviour:
@@ -1565,7 +1633,7 @@ Transform:
   - {fileID: 150606023}
   - {fileID: 1682077441}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &734026523
 GameObject:
@@ -1780,43 +1848,8 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!84 &858637102
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 1920
-  m_Height: 1080
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 1
-  m_ColorFormat: 4
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &960028059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1997,6 +2030,7 @@ MonoBehaviour:
   underLimit: 0.3
   isCameraMoving: 0
   isTargeting: 0
+  isZoomed: 0
   button: {fileID: 1959649510}
 --- !u!114 &963194230
 MonoBehaviour:
@@ -2026,8 +2060,8 @@ MonoBehaviour:
   sourceCamera: {fileID: 963194227}
   outlineCamera: {fileID: 1828482341}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 2004693817}
-  extraRenderTexture: {fileID: 858637102}
+  renderTexture: {fileID: 1334214937}
+  extraRenderTexture: {fileID: 324381319}
 --- !u!1 &976318805 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1703818019394716, guid: be7467c8b40af9049abb15c8e59450e6,
@@ -2181,8 +2215,77 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1013032333
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7029897871026033296, guid: 912b4e1cd9281a9488394776ebce16f5,
+        type: 3}
+      propertyPath: m_Name
+      value: Apple0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027369955049794898, guid: 912b4e1cd9281a9488394776ebce16f5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.8868504
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027369955049794898, guid: 912b4e1cd9281a9488394776ebce16f5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.7017422
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027369955049794898, guid: 912b4e1cd9281a9488394776ebce16f5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.97065
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027369955049794898, guid: 912b4e1cd9281a9488394776ebce16f5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027369955049794898, guid: 912b4e1cd9281a9488394776ebce16f5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027369955049794898, guid: 912b4e1cd9281a9488394776ebce16f5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027369955049794898, guid: 912b4e1cd9281a9488394776ebce16f5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027369955049794898, guid: 912b4e1cd9281a9488394776ebce16f5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027369955049794898, guid: 912b4e1cd9281a9488394776ebce16f5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027369955049794898, guid: 912b4e1cd9281a9488394776ebce16f5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027369955049794898, guid: 912b4e1cd9281a9488394776ebce16f5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 912b4e1cd9281a9488394776ebce16f5, type: 3}
 --- !u!1 &1017271453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2228,6 +2331,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camPos: {fileID: 399678610}
   spicePos: {fileID: 0}
+  addIngred: []
+  potObj: {fileID: 0}
   finalFlavor:
   - 0
   - 0
@@ -2239,6 +2344,7 @@ MonoBehaviour:
   save: {r: 0, g: 0, b: 0, a: 0}
   changeTime: 4
   goal: {fileID: 0}
+  isCooking: 1
 --- !u!4 &1017271456
 Transform:
   m_ObjectHideFlags: 0
@@ -2255,7 +2361,7 @@ Transform:
   - {fileID: 113708208}
   - {fileID: 399678610}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1046812699 stripped
 RectTransform:
@@ -2391,7 +2497,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1119846924
 MonoBehaviour:
@@ -2497,6 +2603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: 
+  boardName: 
   type: 0
   cookingTime: 1
   isProcessed: 0
@@ -2534,6 +2641,36 @@ MonoBehaviour:
   eraseRenderer: 0
   originalLayer: 0
   originalMaterials: []
+--- !u!1 &1292379257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1292379258}
+  m_Layer: 0
+  m_Name: SponPos1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1292379258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292379257}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.722, y: -0.34525, z: 0}
+  m_LocalScale: {x: 0.14627326, y: 0.10024887, z: 0.14627326}
+  m_Children: []
+  m_Father: {fileID: 1416621203}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &1298895926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2656,8 +2793,52 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3745368969410154718, guid: 6b35ffbfe8da14b4b8efcad56c78dc7e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484669930, guid: 6b35ffbfe8da14b4b8efcad56c78dc7e, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b35ffbfe8da14b4b8efcad56c78dc7e, type: 3}
+--- !u!84 &1334214937
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 1920
+  m_Height: 1080
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 1
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1416621198
 GameObject:
   m_ObjectHideFlags: 0
@@ -2767,6 +2948,7 @@ Transform:
   - {fileID: 613411509}
   - {fileID: 1918865123}
   - {fileID: 1838474248}
+  - {fileID: 1292379258}
   m_Father: {fileID: 723879674}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2987,7 +3169,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 2004693817}
+  m_TargetTexture: {fileID: 1334214937}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -3153,7 +3335,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1918865122
 GameObject:
@@ -3350,7 +3532,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1983160707
 GameObject:
@@ -3404,6 +3586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: 
+  boardName: 
   type: 0
   cookingTime: 10
   isProcessed: 1
@@ -3528,43 +3711,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!84 &2004693817
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 1920
-  m_Height: 1080
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 1
-  m_ColorFormat: 4
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &2035136709
 GameObject:
   m_ObjectHideFlags: 0
@@ -3617,6 +3765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: 
+  boardName: 
   type: 0
   cookingTime: 1
   isProcessed: 0
@@ -3741,7 +3890,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2047166226
 GameObject:
@@ -3795,6 +3944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: 
+  boardName: 
   type: 0
   cookingTime: 1
   isProcessed: 0
@@ -3919,7 +4069,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2145996430
 GameObject:

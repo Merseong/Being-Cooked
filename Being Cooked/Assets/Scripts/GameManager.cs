@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     public HashSet<string> finalIngredients = new HashSet<string>();
 
     public TypeChanger0 Typechanger0;
+    public TypeChanger1 Typechanger1;
 
     public float[] recipeTaste = new float[]
     {

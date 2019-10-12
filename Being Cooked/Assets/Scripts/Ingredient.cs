@@ -41,7 +41,7 @@ public abstract class Ingredient : MonoBehaviour
     [Range(-20, 20)]
     public float[] afterFlavor = new float[6];
 
-    protected CharacterMove characterMove;
+    public CharacterMove characterMove;
 
     public abstract void IntoPot();
 

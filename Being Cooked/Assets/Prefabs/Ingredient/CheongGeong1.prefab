@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76003e21dd7ad341ba7dc952fc7ad62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 20
   followPos: []
   followCount: 20
   isControlled: 0

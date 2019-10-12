@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterMove : MonoBehaviour
 {
-    public float speed = 30;
+    public float speed = 20;
     public List<Vector3> followPos = new List<Vector3>();
     [HideInInspector]
     public int followCount = 20;

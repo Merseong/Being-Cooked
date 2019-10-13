@@ -41,8 +41,12 @@ public class TypeChanger1 : MonoBehaviour
 
             if (Resources.Load(nameIng) != null)
             {
-                Instantiate(Resources.Load(nameIng), sponPos.position, Quaternion.identity);
-                GameObject.Find(nameIng).GetComponent<Ingredient>().EnterControl(); //요거 오브젝트 똑바로 못 찾음;; 해결해야해
+                var a = Instantiate(Resources.Load<GameObject>(nameIng), sponPos.position, Quaternion.identity);
+
+                a.GetComponent<Ingredient>().EnterControl();
+
+                Debug.Log(a.GetComponent<Ingredient>().characterMove.enabled);
+                //GameObject.Find(nameIng).GetComponent<Ingredient>().EnterControl(); //요거 오브젝트 똑바로 못 찾음;; 해결해야해
 
                 //GameManager.inst.cameraMove.MoveTo(GameObject.Find(nameIngF).transform, ing.size);
             }

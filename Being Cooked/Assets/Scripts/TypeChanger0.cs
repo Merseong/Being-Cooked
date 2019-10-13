@@ -74,9 +74,9 @@ public class TypeChanger0 : MonoBehaviour
         yield return new WaitForSeconds(1);
         GameManager.inst.cameraFollow.StopCameraForChanger(2, ing, false);
     }
-    IEnumerator makeFollower (string name)
+    IEnumerator makeFollower (string name, Ingredient ing)
     {
-        for(int i = 0; i  < 3; i++)
+        for(int i = 0; i  < ing.; i++)
         {
             Instantiate(Resources.Load(name+"f"), sponPos.position, Quaternion.identity);
             yield return new WaitForSeconds(1);

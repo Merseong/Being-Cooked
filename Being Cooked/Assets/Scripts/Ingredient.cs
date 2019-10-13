@@ -53,8 +53,10 @@ public abstract class Ingredient : MonoBehaviour
 
     public void EnterControl()
     {
+        Debug.Log("aa");
         GameManager.inst.cameraMove.MoveTo(transform, size);
         characterMove.enabled = true;
+        Debug.Log("a");
     }
     public void ExitControl()
     {

@@ -39,6 +39,7 @@ public class CameraMove : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         isCameraMoving = false;
+        Debug.Log("B");
     }
 
     private void Start()

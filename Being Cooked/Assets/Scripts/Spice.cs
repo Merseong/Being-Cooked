@@ -10,15 +10,13 @@ public class Spice : Ingredient
     public ParticleSystem particle;
 
     private Rigidbody rb;
-    private Vector3 originPos;
-    private Quaternion originRot;
+    private Vector3 originPos = new Vector3(-44.5f, 52.1f, -4.433f);
+    private Quaternion originRot = new Quaternion();
 
     protected override void AfterStart()
     {
         rb = GetComponent<Rigidbody>();
         type = IngredientType.Spice;
-        originPos = transform.position;
-        originRot = transform.rotation;
     }
 
     public override void IntoPot()

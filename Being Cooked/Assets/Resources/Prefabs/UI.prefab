@@ -31,7 +31,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 216000650309772850}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -202,9 +202,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 216000648437161308}
-  - {fileID: 3745368969410154718}
   - {fileID: 312897388}
   - {fileID: 1982642051571905790}
+  - {fileID: 3745368969410154718}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -288,6 +288,7 @@ MonoBehaviour:
   midDot: {fileID: 216000648437161311}
   foodBar: {fileID: 5044638793060905881, guid: b3d57035c66335c4a8119e528b21269a, type: 3}
   foodBarParent: {fileID: 6076227275398894427}
+  smokeParticle: {fileID: 0}
 --- !u!1 &644293250887359675
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,7 +562,7 @@ RectTransform:
   - {fileID: 146651703421252579}
   - {fileID: 7238688393719105841}
   m_Father: {fileID: 216000650309772850}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1065,7 +1066,7 @@ PrefabInstance:
     - target: {fileID: 3745368967917764812, guid: fa16a62d6fd0a414cab967f632a59857,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3745368967917764812, guid: fa16a62d6fd0a414cab967f632a59857,
         type: 3}

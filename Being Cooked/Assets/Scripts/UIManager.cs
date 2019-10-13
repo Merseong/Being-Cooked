@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        emissionValue = Mathf.RoundToInt(Mathf.Lerp(0, 30, Mathf.Max(0, GameManager.inst.pot.maxBurned - 1)));
+        emissionValue = Mathf.RoundToInt(Mathf.Lerp(0, 20, Mathf.Max(0, GameManager.inst.pot.maxBurned - 2)));
 
         var emission = smokeParticle.emission;
         ParticleSystem.MinMaxCurve tempCurve = emission.rateOverTime;

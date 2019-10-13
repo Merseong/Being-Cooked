@@ -42,13 +42,15 @@ public class FinalTester : MonoBehaviour
         // check taste
         for (int i = 0; i < 6; i++)
         {
+            Debug.Log(Mathf.RoundToInt(GameManager.inst.finalTaste[i]) / 25);
+            Debug.Log(Mathf.RoundToInt(GameManager.inst.recipeTaste[i]) / 25);
             score += 100 - Mathf.Abs(Mathf.RoundToInt(GameManager.inst.recipeTaste[i] - GameManager.inst.finalTaste[i]));
-            if (GameManager.inst.recipeTaste[i] / 25 == GameManager.inst.finalTaste[i] / 25)
+            if (Mathf.RoundToInt(GameManager.inst.recipeTaste[i]) / 25 != Mathf.RoundToInt(GameManager.inst.finalTaste[i]) / 25)
             {
                 isInArea[i] = true;
                 isPerpect = false;
             }
-            if (!isInArea[i])
+            if (isInArea[i])
             {
                 switch(i)
                 {

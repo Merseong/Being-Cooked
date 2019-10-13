@@ -50,8 +50,9 @@ public class CookingPot : MonoBehaviour
             {
                 var spice = other.GetComponent<Spice>();
                 spice.IntoPot();
-                addIngred.Add(spice.GetSpiceObj());
-                addedIngre.Add(ing);
+                var spiceObj = spice.GetSpiceObj();
+                addIngred.Add(spiceObj);
+                addedIngre.Add(spiceObj.GetComponent<Ingredient>());
                 save = soupColor;
                 StartCoroutine(ChangingColor(spice.soupColor));
             }

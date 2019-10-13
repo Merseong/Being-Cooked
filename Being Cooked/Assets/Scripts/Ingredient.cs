@@ -64,6 +64,7 @@ public abstract class Ingredient : MonoBehaviour
     {
         GameManager.inst.cameraMove.MoveTo(transform, size);
         characterMove.enabled = true;
+        characterMove.isJumped = false;
     }
     public void ExitControl()
     {

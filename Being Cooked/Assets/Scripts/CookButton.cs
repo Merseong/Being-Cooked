@@ -81,25 +81,74 @@ public class CookButton : MonoBehaviour
     {
         for (int i = 0; i < 6; i++)
         {
-            if (finalFlavor[i] < 25)
+            if (i == 0)
             {
-                script.text = textTaste[i, 0];
+                if (finalFlavor[i] < 25)
+                {
+                    script.text = textTaste[i, 0];
+                }
+                else if (finalFlavor[i] < 50)
+                {
+                    script.text = textTaste[i, 1];
+                }
+                else if (finalFlavor[i] < 75)
+                {
+                    script.text = textTaste[i, 2];
+                }
+                else if (finalFlavor[i] < 100)
+                {
+                    script.text = textTaste[i, 3];
+                }
+                else
+                {
+                    script.text = "dirty hacker!";
+                }
             }
-            else if (finalFlavor[i] < 50)
+            else if(i%2 == 1)
             {
-                script.text += textTaste[i, 1];
-            }
-            else if (finalFlavor[i] < 75)
-            {
-                script.text += textTaste[i, 2];
-            }
-            else if (finalFlavor[i] < 100)
-            {
-                script.text += textTaste[i, 3];
+                if (finalFlavor[i] < 25)
+                {
+                    script.text += "\t" + textTaste[i, 0];
+                }
+                else if (finalFlavor[i] < 50)
+                {
+                    script.text += "\t" + textTaste[i, 1];
+                }
+                else if (finalFlavor[i] < 75)
+                {
+                    script.text += "\t" + textTaste[i, 2];
+                }
+                else if (finalFlavor[i] < 100)
+                {
+                    script.text += "\t" + textTaste[i, 3];
+                }
+                else
+                {
+                    script.text = "dirty hacker!";
+                }
             }
             else
             {
-                script.text = "dirty hacker!";
+                if (finalFlavor[i] < 25)
+                {
+                    script.text += "\n" + textTaste[i, 0];
+                }
+                else if (finalFlavor[i] < 50)
+                {
+                    script.text += "\n" + textTaste[i, 1];
+                }
+                else if (finalFlavor[i] < 75)
+                {
+                    script.text += "\n" + textTaste[i, 2];
+                }
+                else if (finalFlavor[i] < 100)
+                {
+                    script.text += "\n" + textTaste[i, 3];
+                }
+                else
+                {
+                    script.text = "dirty hacker!";
+                }
             }
             Debug.Log("Yammy!");
             yield return new WaitForSeconds(1);

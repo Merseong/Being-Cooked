@@ -15,6 +15,12 @@ public class FinalTester : MonoBehaviour
 
     private CookingPot pot;
 
+    [Header("Score")]
+    public int score = 500;
+    public Text yourScore;
+    public Text TopScore;
+    public Text TopScoreTime;
+
     private void Start()
     {
         SceneManager.SetActiveScene(gameObject.scene);
@@ -22,13 +28,12 @@ public class FinalTester : MonoBehaviour
         pot.transform.position = mainPlane.transform.position;
         timerText.text = GameManager.inst.sw.Elapsed.ToString();
 
+        TopScore.text = PlayerPrefs.GetInt("HighScore").ToString();
+        TopScoreTime.text = PlayerPrefs.GetString("HighScoreTime");
+
         CheckRecipe();
     }
 
-    private int[] tasteArea = new int[]
-    {
-        0, 25, 50, 75, 100
-    };
     private bool[] isInArea = new bool[6];
 
     void CheckRecipe()
@@ -37,16 +42,11 @@ public class FinalTester : MonoBehaviour
         // check taste
         for (int i = 0; i < 6; i++)
         {
-            for (int j = 0; j < 4; j++)
+            score += 100 - Mathf.Abs(Mathf.RoundToInt(GameManager.inst.recipeTaste[i] - GameManager.inst.finalTaste[i]));
+            if (GameManager.inst.recipeTaste[i] / 25 == GameManager.inst.finalTaste[i] / 25)
             {
-                //Debug.Log(i + " and " + j);
-                if (GameManager.inst.recipeTaste[i] > tasteArea[j] && GameManager.inst.recipeTaste[i] <= tasteArea[j + 1] &&
-                    GameManager.inst.finalTaste[i] > tasteArea[j] && GameManager.inst.recipeTaste[i] <= tasteArea[j + 1])
-                {
-                    isInArea[i] = true;
-                    isPerpect = false;
-                    break;
-                }   
+                isInArea[i] = true;
+                isPerpect = false;
             }
             if (!isInArea[i])
             {
@@ -88,6 +88,7 @@ public class FinalTester : MonoBehaviour
             if (!GameManager.inst.finalIngredients.Contains(GameManager.inst.recipeIngredients[i]))
             {
                 answerText.text += "중요한 재료가 몇 부족한것같다.\n";
+                score -= 500;
                 isPerpect = false;
                 break;
             }
@@ -95,7 +96,26 @@ public class FinalTester : MonoBehaviour
         if (isPerpect)
         {
             answerText.text += "완벽한 요리다!!\n";
+            score += 500;
             spriteRenderer.sprite = doneSprite;
         }
+        yourScore.text = score.ToString();
+    }
+
+    public void BackToTitle()
+    {
+        int timeElapseInt = System.Convert.ToInt32(GameManager.inst.sw.ElapsedMilliseconds / 1000);
+        if (PlayerPrefs.GetInt("HighScore") < score)
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+            PlayerPrefs.SetString("HighScoreTime", timerText.text.Substring(0, 8));
+            PlayerPrefs.SetInt("HighScoreTimeInt", timeElapseInt);
+        }
+        else if (PlayerPrefs.GetInt("HighScore") == score && PlayerPrefs.GetInt("HighScoreTimeInt") > timeElapseInt)
+        {
+            PlayerPrefs.SetString("HighScoreTime", timerText.text.Substring(0, 8));
+            PlayerPrefs.SetInt("HighScoreTimeInt", timeElapseInt);
+        }
+        SceneManager.LoadScene("StartScene");
     }
 }

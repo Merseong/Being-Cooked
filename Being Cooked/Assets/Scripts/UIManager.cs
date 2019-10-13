@@ -16,14 +16,21 @@ public class UIManager : MonoBehaviour
     public Image midDot;
 
     public GameObject foodBar;
+    public RectTransform foodBarParent;
+    private int barCount = 0;
     private Vector2 nextBarPos = new Vector2();
 
     public void GenerateFoodBar(Ingredient ingre)
     {
-        var bar = Instantiate(foodBar, transform).GetComponent<FoodGauge>();
+        var bar = Instantiate(foodBar, foodBarParent).GetComponent<FoodGauge>();
         bar.Img.sprite = Resources.Load<Sprite>("FoodSprites/" + ingre.foodName + (ingre.isProcessed ? 1 : 0)); 
         bar.assignedIng = ingre;
         bar.gameObject.GetComponent<RectTransform>().Translate(nextBarPos);
+        barCount++;
         nextBarPos += new Vector2(0, 85);
+        if (nextBarPos.y > 1080)
+        {
+            foodBarParent.sizeDelta = new Vector2(0, 85 * barCount + 30);
+        }
     }
 }

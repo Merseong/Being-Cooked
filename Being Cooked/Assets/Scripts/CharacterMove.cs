@@ -9,8 +9,8 @@ public class CharacterMove : MonoBehaviour
     [HideInInspector]
     public int followCount = 20;
 
-    private bool isJumped = false;
-    private bool isInAir = false;
+    public bool isJumped = false;
+    public bool isInAir = false;
     public bool isControlled = false;
 
     Rigidbody rb;
@@ -50,7 +50,7 @@ public class CharacterMove : MonoBehaviour
 
         if (isInAir)
         {
-            rb.AddForce(Vector3.down * speed);
+            rb.AddForce(Vector3.down * speed * 0.5f);
         }
 
         // jump control

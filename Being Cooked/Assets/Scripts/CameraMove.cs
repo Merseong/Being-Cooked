@@ -39,7 +39,6 @@ public class CameraMove : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         isCameraMoving = false;
-        Debug.Log("B");
     }
 
     private void Start()
@@ -123,13 +122,17 @@ public class CameraMove : MonoBehaviour
         }
         else
         {
-            if (Input.GetMouseButtonDown(1) && beforeHit != null)
+            if (Input.GetMouseButtonDown(1) && beforeHit != null )
             {
                 switch (beforeHit.tag)
                 {
                     case "Ingredient":
-                        beforeHit.GetComponent<Ingredient>().ExitControl();
-                        isTargeting = false;
+                        var ing = beforeHit.GetComponent<Ingredient>();
+                        if (!ing.characterMove.isInAir)
+                        {
+                            ing.ExitControl();
+                            isTargeting = false;
+                        }
                         break;
                     case "Pot":
                         GameManager.inst.cameraFollow.ResetCamera(GameManager.inst.pot.transform);

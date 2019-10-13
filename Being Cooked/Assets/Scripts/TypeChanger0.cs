@@ -45,7 +45,7 @@ public class TypeChanger0 : MonoBehaviour
             if (Resources.Load(nameIngF) != null)
             {
                 Instantiate(Resources.Load(nameIngF), sponPos.position, Quaternion.identity);
-                StartCoroutine(makeFollower(nameIngF));
+                StartCoroutine(makeFollower(nameIngF, null));
                 GameObject.Find(nameIngF).GetComponent<Ingredient>().EnterControl(); //요거 오브젝트 똑바로 못 찾음;; 해결해야해
                
                 //GameManager.inst.cameraMove.MoveTo(GameObject.Find(nameIngF).transform, ing.size);
@@ -76,7 +76,7 @@ public class TypeChanger0 : MonoBehaviour
     }
     IEnumerator makeFollower (string name, Ingredient ing)
     {
-        for(int i = 0; i  < ing.; i++)
+        for(int i = 0; i  < ing.followerCount; i++)
         {
             Instantiate(Resources.Load(name+"f"), sponPos.position, Quaternion.identity);
             yield return new WaitForSeconds(1);

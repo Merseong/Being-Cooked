@@ -18,7 +18,7 @@ public class FinalTester : MonoBehaviour
     private void Start()
     {
         SceneManager.SetActiveScene(gameObject.scene);
-        pot = GameObject.Find("Pot").GetComponent<CookingPot>();
+        pot = GameManager.inst.pot;
         pot.transform.position = mainPlane.transform.position;
         timerText.text = GameManager.inst.sw.Elapsed.ToString();
 

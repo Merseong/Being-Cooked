@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     {
         if (inst != null) Destroy(inst);
         inst = this;
+
+        Application.targetFrameRate = 120;
     }
 
     public Stopwatch sw = new Stopwatch();

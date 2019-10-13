@@ -18,7 +18,7 @@ public class CameraMove : MonoBehaviour
     private Quaternion beforeLocalRot;
     private Camera mainCam;
 
-    private Transform beforeHit;
+    public Transform beforeHit;
 
     public void MoveTo(Transform target, float howFar, Transform lookTarget = null, bool looking = true)
     {
@@ -122,7 +122,7 @@ public class CameraMove : MonoBehaviour
         }
         else
         {
-            if (Input.GetMouseButtonDown(1) && beforeHit != null )
+            if (Input.GetMouseButtonDown(1) && beforeHit != null)
             {
                 switch (beforeHit.tag)
                 {

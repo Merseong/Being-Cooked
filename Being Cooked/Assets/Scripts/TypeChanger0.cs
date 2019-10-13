@@ -34,8 +34,8 @@ public class TypeChanger0 : MonoBehaviour
     {
         if (!ing.isProcessed)//가공된 재료 생성, 타겟. 기존 재료 삭제
         {
-            string name = ing.gameObject.name;
-            string nameIngF = "Prefabs/Ingredient/" + name.Substring(0, name.Length - 1) + "1";
+            string name = ing.foodName;
+            string nameIngF = "Prefabs/Ingredient/" + name + "1";
 
 
             Debug.Log("재료를 가공합니다. 가공 대상 : " + name + "가공 완료 대상 : " + nameIngF);
@@ -44,9 +44,9 @@ public class TypeChanger0 : MonoBehaviour
 
             if (Resources.Load(nameIngF) != null)
             {
-                Instantiate(Resources.Load(nameIngF), sponPos.position, Quaternion.identity);
-                StartCoroutine(makeFollower(nameIngF));
-                GameObject.Find(nameIngF).GetComponent<Ingredient>().EnterControl(); //요거 오브젝트 똑바로 못 찾음;; 해결해야해
+                var a = Instantiate(Resources.Load<GameObject>(nameIngF), sponPos.position, Quaternion.identity).GetComponent<Ingredient>();
+                StartCoroutine(makeFollower(nameIngF, a));
+                a.EnterControl(); //요거 오브젝트 똑바로 못 찾음;; 해결해야해
                
                 //GameManager.inst.cameraMove.MoveTo(GameObject.Find(nameIngF).transform, ing.size);
             }
@@ -64,7 +64,6 @@ public class TypeChanger0 : MonoBehaviour
             ing.gameObject.transform.position = sponPos.position;
             GameManager.inst.cameraMove.MoveTo(ing.transform, ing.size);
             ing.characterMove.enabled = true;
-            //follower들도 따라가게 해줘야함
         }
     }
 
@@ -76,9 +75,11 @@ public class TypeChanger0 : MonoBehaviour
     }
     IEnumerator makeFollower (string name, Ingredient ing)
     {
-        for(int i = 0; i  < ing.; i++)
+        for(int i = 0; i  < ing.followerCount; i++)
         {
-            Instantiate(Resources.Load(name+"f"), sponPos.position, Quaternion.identity);
+            var IngF = Instantiate(Resources.Load<GameObject>(name+"f"), sponPos.position, Quaternion.identity).GetComponent<Follower>();
+            IngF.cMove = ing.characterMove;
+
             yield return new WaitForSeconds(1);
         }
     }

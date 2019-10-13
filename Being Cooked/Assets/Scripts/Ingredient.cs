@@ -62,10 +62,8 @@ public abstract class Ingredient : MonoBehaviour
 
     public void EnterControl()
     {
-        Debug.Log("aa");
         GameManager.inst.cameraMove.MoveTo(transform, size);
         characterMove.enabled = true;
-        Debug.Log("a");
     }
     public void ExitControl()
     {
@@ -110,12 +108,14 @@ public abstract class Ingredient : MonoBehaviour
         }
         return flavor;
     }
-
+    private void Awake()
+    {
+        characterMove = GetComponent<CharacterMove>();
+        characterMove.enabled = false;
+    }
     private void Start()
     {
         GetComponent<Outline>().enabled = false;
-        characterMove = GetComponent<CharacterMove>();
-        characterMove.enabled = false;
         BoardManager.inst.AddIngredient(this);
         AfterStart();
     }

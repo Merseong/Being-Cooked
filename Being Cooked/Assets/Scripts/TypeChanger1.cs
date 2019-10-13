@@ -47,6 +47,7 @@ public class TypeChanger1 : MonoBehaviour
             {
                 var a = Instantiate(Resources.Load<GameObject>(nameIng), sponPos.position, Quaternion.identity).GetComponent<Ingredient>();
                 a.EnterControl();
+                GameManager.inst.cameraMove.beforeHit = a.transform;
                 
                 //GameObject.Find(nameIng).GetComponent<Ingredient>().EnterControl(); //요거 오브젝트 똑바로 못 찾음;; 해결해야해
 

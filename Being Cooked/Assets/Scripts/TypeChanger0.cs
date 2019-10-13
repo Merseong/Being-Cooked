@@ -47,7 +47,8 @@ public class TypeChanger0 : MonoBehaviour
                 var a = Instantiate(Resources.Load<GameObject>(nameIngF), sponPos.position, Quaternion.identity).GetComponent<Ingredient>();
                 StartCoroutine(makeFollower(nameIngF, a));
                 a.EnterControl(); //요거 오브젝트 똑바로 못 찾음;; 해결해야해
-               
+                GameManager.inst.cameraMove.beforeHit = a.transform;
+
                 //GameManager.inst.cameraMove.MoveTo(GameObject.Find(nameIngF).transform, ing.size);
             }
             else

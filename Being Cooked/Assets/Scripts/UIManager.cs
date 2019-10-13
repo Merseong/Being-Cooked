@@ -20,6 +20,9 @@ public class UIManager : MonoBehaviour
     private int barCount = 0;
     private Vector2 nextBarPos = new Vector2();
 
+    public ParticleSystem smokeParticle;
+    private int emissionValue = 0;
+
     public void GenerateFoodBar(Ingredient ingre)
     {
         var bar = Instantiate(foodBar, foodBarParent).GetComponent<FoodGauge>();
@@ -32,5 +35,15 @@ public class UIManager : MonoBehaviour
         {
             foodBarParent.sizeDelta = new Vector2(0, 85 * barCount + 30);
         }
+    }
+
+    private void Update()
+    {
+        emissionValue = Mathf.RoundToInt(Mathf.Lerp(0, 30, Mathf.Max(0, GameManager.inst.pot.maxBurned - 1)));
+
+        var emission = smokeParticle.emission;
+        ParticleSystem.MinMaxCurve tempCurve = emission.rateOverTime;
+        tempCurve.constant = emissionValue;
+        emission.rateOverTime = tempCurve;
     }
 }

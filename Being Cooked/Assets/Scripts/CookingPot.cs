@@ -8,6 +8,7 @@ public class CookingPot : MonoBehaviour
     public Transform camPos;
     public Transform spicePos;
     public List<GameObject> addIngred = new List<GameObject>();
+    public List<Ingredient> addedIngre = new List<Ingredient>();
     public GameObject potObj;
 
     public float[] finalFlavor = new float[6];
@@ -39,6 +40,7 @@ public class CookingPot : MonoBehaviour
             if (ing.type == IngredientType.Solid)
             {
                 addIngred.Add(other.gameObject);
+                addedIngre.Add(ing);
                 ing.IntoPot();
                 //Debug.Log(ing.soupColor);
                 save = soupColor;
@@ -49,6 +51,7 @@ public class CookingPot : MonoBehaviour
                 var spice = other.GetComponent<Spice>();
                 spice.IntoPot();
                 addIngred.Add(spice.GetSpiceObj());
+                addedIngre.Add(ing);
                 save = soupColor;
                 StartCoroutine(ChangingColor(spice.soupColor));
             }
@@ -72,7 +75,7 @@ public class CookingPot : MonoBehaviour
         }
         for (int i = 0; i < addIngred.Count; i++)
         {
-            float[] flavor = addIngred[i].GetComponent<Ingredient>().GetFlavor();
+            float[] flavor = addedIngre[i].GetFlavor();
 
             for (int j = 0; j < 6; j++)
             {
@@ -94,13 +97,19 @@ public class CookingPot : MonoBehaviour
         return finalFlavor;
     }
 
+    public float maxBurned = 0;
+
     private void Update()
     {
         if (isCooking)
         {
             for (int i = 0; i < addIngred.Count; i++)
             {
-                addIngred[i].GetComponent<Ingredient>().cookedTime += Time.deltaTime;
+                addedIngre[i].cookedTime += Time.deltaTime;
+                if (maxBurned < addedIngre[i].cookedTime / addedIngre[i].cookingTime)
+                {
+                    maxBurned = addedIngre[i].cookedTime / addedIngre[i].cookingTime;
+                }
             }
         }
     }

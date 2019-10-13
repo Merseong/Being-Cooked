@@ -32,20 +32,22 @@ public class TypeChanger1 : MonoBehaviour
     {
         if (ing.isProcessed)//가공되지 않은 재료 생성, 타겟. 기존 재료 삭제
         {
-            string name = ing.gameObject.name;
-            string nameIng = "Prefabs/Ingredient/" + name.Substring(0, name.Length - 1) + "0";
+            string name = ing.foodName;
+            string nameIng = "Prefabs/Ingredient/" + name + "0";
 
             Debug.Log("재료를 재조립합니다.");
 
+            for (int i = 0; i < ing.followerCount; i++)
+            {
+                Destroy(ing.followers[i].gameObject);
+            }
             Destroy(ing.gameObject);
 
             if (Resources.Load(nameIng) != null)
             {
-                var a = Instantiate(Resources.Load<GameObject>(nameIng), sponPos.position, Quaternion.identity);
-
-                a.GetComponent<Ingredient>().EnterControl();
-
-                Debug.Log(a.GetComponent<Ingredient>().characterMove.enabled);
+                var a = Instantiate(Resources.Load<GameObject>(nameIng), sponPos.position, Quaternion.identity).GetComponent<Ingredient>();
+                a.EnterControl();
+                
                 //GameObject.Find(nameIng).GetComponent<Ingredient>().EnterControl(); //요거 오브젝트 똑바로 못 찾음;; 해결해야해
 
                 //GameManager.inst.cameraMove.MoveTo(GameObject.Find(nameIngF).transform, ing.size);

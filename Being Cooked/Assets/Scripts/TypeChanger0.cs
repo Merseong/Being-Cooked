@@ -25,6 +25,7 @@ public class TypeChanger0 : MonoBehaviour
             /*other.GetComponent<Ingredient>().ExitControl();
             GameManager.inst.cameraMove.isTargeting = false;*/
 
+            ing.characterMove.enabled = false;
             StartCoroutine(StartChanger(ing));
 
         }
@@ -34,18 +35,25 @@ public class TypeChanger0 : MonoBehaviour
         if (!ing.isProcessed)//가공된 재료 생성, 타겟. 기존 재료 삭제
         {
             string name = ing.gameObject.name;
-            string nameIngF = "Assests/Prefabs/Ingredient/" + name.Substring(0, name.Length - 1) + "1";
+            string nameIngF = "Prefabs/Ingredient/" + name.Substring(0, name.Length - 1) + "1";
+
 
             Debug.Log("재료를 가공합니다. 가공 대상 : " + name + "가공 완료 대상 : " + nameIngF);
+
+            Destroy(ing.gameObject);
 
             if (Resources.Load(nameIngF) != null)
             {
                 Instantiate(Resources.Load(nameIngF), sponPos.position, Quaternion.identity);
+                StartCoroutine(makeFollower(nameIngF));
+                GameObject.Find(nameIngF).GetComponent<Ingredient>().EnterControl(); //요거 오브젝트 똑바로 못 찾음;; 해결해야해
+               
+                //GameManager.inst.cameraMove.MoveTo(GameObject.Find(nameIngF).transform, ing.size);
             }
             else
                 Debug.Log("가공 재료 프리팹 없음!");
             //코루틴으로 추가 팔로워들 생성
-            Destroy(ing.gameObject);
+            
             //Instantiate<other.gameObject. name> 재료 생성 + 부가재료 코루틴 만들기
         }
         else //기존 재료 이동, 다시 타겟
@@ -55,7 +63,7 @@ public class TypeChanger0 : MonoBehaviour
             Debug.Log("가공된 재료를 보존합니다.");
             ing.gameObject.transform.position = sponPos.position;
             GameManager.inst.cameraMove.MoveTo(ing.transform, ing.size);
-            ing.canControl = true;
+            ing.characterMove.enabled = true;
             //follower들도 따라가게 해줘야함
         }
     }
@@ -65,5 +73,13 @@ public class TypeChanger0 : MonoBehaviour
         GameManager.inst.cameraMove.MoveTo(camPos, 0, gameObject.transform.parent.gameObject.transform);
         yield return new WaitForSeconds(1);
         GameManager.inst.cameraFollow.StopCameraForChanger(2, ing, false);
+    }
+    IEnumerator makeFollower (string name, Ingredient ing)
+    {
+        for(int i = 0; i  < ing.; i++)
+        {
+            Instantiate(Resources.Load(name+"f"), sponPos.position, Quaternion.identity);
+            yield return new WaitForSeconds(1);
+        }
     }
 }

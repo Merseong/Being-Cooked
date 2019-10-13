@@ -46,7 +46,7 @@ public abstract class Ingredient : MonoBehaviour
     public int followerCount = 0;
     public List<Transform> followers;
 
-    protected CharacterMove characterMove;
+    public CharacterMove characterMove;
 
     public abstract void IntoPot();
 
@@ -62,8 +62,10 @@ public abstract class Ingredient : MonoBehaviour
 
     public void EnterControl()
     {
+        Debug.Log("aa");
         GameManager.inst.cameraMove.MoveTo(transform, size);
         characterMove.enabled = true;
+        Debug.Log("a");
     }
     public void ExitControl()
     {

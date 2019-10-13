@@ -26,7 +26,7 @@ public class TypeChanger0 : MonoBehaviour
             GameManager.inst.cameraMove.isTargeting = false;*/
 
             ing.characterMove.enabled = false;
-            StartCoroutine(StartChanger(ing));
+            StartCoroutine(StartChanger(ing, this));
 
         }
     }
@@ -68,11 +68,11 @@ public class TypeChanger0 : MonoBehaviour
         }
     }
 
-    IEnumerator StartChanger (Ingredient ing)
+    IEnumerator StartChanger (Ingredient ing, TypeChanger0 tc)
     {
         GameManager.inst.cameraMove.MoveTo(camPos, 0, gameObject.transform.parent.gameObject.transform);
         yield return new WaitForSeconds(1);
-        GameManager.inst.cameraFollow.StopCameraForChanger(2, ing, false);
+        GameManager.inst.cameraFollow.StopCameraForChanger(2, ing, false, tc);
     }
     IEnumerator makeFollower (string name, Ingredient ing)
     {

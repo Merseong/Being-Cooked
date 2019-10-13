@@ -79,6 +79,17 @@ public class CookingPot : MonoBehaviour
                 finalFlavor[j] += flavor[j];
             }
         }
+        for (int i = 0; i < 6; i++)
+        {
+            if (finalFlavor[i] > 100)
+            {
+                finalFlavor[i] = 100;
+            }
+            else if (finalFlavor[i] < 0)
+            {
+                finalFlavor[i] = 0;
+            }
+        }
         //Debug.Log(finalFlavor[0]);
         return finalFlavor;
     }

@@ -14,12 +14,12 @@ public class CookButton : MonoBehaviour
     public Text script;
     public string[,] textTaste = new string[6, 4]
         {
-            { "단맛이 안난다.","좀 더 달아야 할 것 같다.","달콤하다.","너무 달다." },
-            { "너무 싱겁다.","삼삼하다.","짭짤하다.","너무 짜다." },
-            { "너무 안맵다.","좀 더 매웠으면 좋겠다.","매콤하다.","너무 맵다." },
-            { "시큼하지 않다.","좀 더 시큼해도 좋을 것 같다.","시큼하다.","너무 시다." },
-            { "쓴 맛이 존재하지 않는 것 같다.","좀 더 씁쓸하면 좋을 것 같다.","씁쓸하다.","약맛이 난다." },
-            { "msg를 좀 넣어야 할 것 같다.","감칠맛이 부족한 것 같다.","감칠맛이 난다.","감칠맛이 과한것 같다." },
+            { "단맛이 안난다. ","좀 더 달아야 할 것 같다. ","달콤하다. ","너무 달다. " },
+            { "너무 싱겁다. ","삼삼하다. ","짭짤하다. ","너무 짜다. " },
+            { "너무 안맵다. ","좀 더 매웠으면 좋겠다. ","매콤하다. ","너무 맵다. " },
+            { "시큼하지 않다. ","좀 더 시큼해도 좋을 것 같다. ","시큼하다. ","너무 시다. " },
+            { "쓴 맛이 존재하지 않는 것 같다. ","좀 더 씁쓸하면 좋을 것 같다. ","씁쓸하다. ","약맛이 난다. " },
+            { "msg를 좀 넣어야 할 것 같다. ","감칠맛이 부족한 것 같다. ","감칠맛이 난다. ","감칠맛이 과한것 같다. " },
         }; // 맛에 따른 맛보기 문장 집어넣어야함
 
     public void cookTaste()
@@ -95,7 +95,7 @@ public class CookButton : MonoBehaviour
                 {
                     script.text = textTaste[i, 2];
                 }
-                else if (finalFlavor[i] < 100)
+                else if (finalFlavor[i] <= 100)
                 {
                     script.text = textTaste[i, 3];
                 }
@@ -118,7 +118,7 @@ public class CookButton : MonoBehaviour
                 {
                     script.text += "\t" + textTaste[i, 2];
                 }
-                else if (finalFlavor[i] < 100)
+                else if (finalFlavor[i] <= 100)
                 {
                     script.text += "\t" + textTaste[i, 3];
                 }
@@ -141,7 +141,7 @@ public class CookButton : MonoBehaviour
                 {
                     script.text += "\n" + textTaste[i, 2];
                 }
-                else if (finalFlavor[i] < 100)
+                else if (finalFlavor[i] <= 100)
                 {
                     script.text += "\n" + textTaste[i, 3];
                 }
@@ -150,7 +150,7 @@ public class CookButton : MonoBehaviour
                     script.text = "dirty hacker!";
                 }
             }
-            Debug.Log("Yammy!");
+            Debug.Log("Yammy!, " + finalFlavor[i]);
             yield return new WaitForSeconds(1);
         }
         scriptBox.SetActive(false);
